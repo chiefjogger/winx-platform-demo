@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0F1B33" />
+  <meta name="description" content="WinX Platform — POS, Business và AI cho 50.000 cửa hàng tạp hóa Việt Nam. Ba sản phẩm. Một nền tảng. Cùng một danh tính cửa hàng." />
+  <meta property="og:title" content="WinX Platform · POS · Business · AI" />
+  <meta property="og:description" content="Một nền tảng. Ba sản phẩm. Cho tiệm Việt Nam." />
+  <meta property="og:type" content="website" />
+  <title>WinX Platform · POS · Business · AI · cho tiệm Việt Nam</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23C73E3A'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,sans-serif' font-weight='800' font-size='32' fill='white'>X</text></svg>" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="platform.css" />
+</head>
+<body>
+
+<!-- ================== TOP NAV ================== -->
+<header class="nav" id="topnav">
+  <div class="nav-inner">
+    <a class="brand" href="#hero" aria-label="WinX Platform">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 36 36" width="28" height="28">
+          <rect width="36" height="36" rx="9" fill="currentColor"/>
+          <path d="M9 11l4.5 14M22.5 11L18 25M14 11l4 8 4-8" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">WinX</span>
+        <span class="brand-suffix">Platform</span>
+      </span>
+    </a>
+    <nav class="nav-links" aria-label="Mục lục">
+      <a href="#scene-pos">WinX POS</a>
+      <a href="#scene-business">WinX Business</a>
+      <a href="#scene-ai">WinX AI</a>
+      <a href="#scene-architecture">Kiến trúc</a>
+      <a href="#closing">Phase 0</a>
+    </nav>
+    <div class="nav-cta">
+      <span class="pill pill-soft">Demo nội bộ</span>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Mở mục lục" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ================== DEMO OPEN — drop straight into the live POS ================== -->
+<section class="demo-open" id="hero">
+  <div class="container demo-open-inner">
+    <div class="demo-intro">
+      <span class="eyebrow"><span class="dot"></span> Demo trực tiếp · Tạp hóa Minh Anh · Bình Tân, HCMC · 10:42</span>
+      <h1 class="demo-intro-title">
+        Cùng một tiệm. <span class="ink-pos">Ba</span> <span class="ink-biz">sản</span> <span class="ink-ai">phẩm.</span> Một stack.
+      </h1>
+      <p class="demo-intro-sub">
+        Bấm nút <strong>"Thu tiền với QR"</strong> trong máy POS bên dưới. Xem Business và AI cập nhật real-time bên phải.
+      </p>
+      <div class="demo-prod-chips">
+        <span class="dpc dpc-pos"><span class="dpc-mark">POS</span>WinX POS · tại quầy</span>
+        <span class="dpc dpc-biz"><span class="dpc-mark">$</span>WinX Business · ví doanh nghiệp</span>
+        <span class="dpc dpc-ai"><span class="dpc-mark">✦</span>WinX AI · trợ lý tiệm</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================== LIVE DEMO: POS + cross-product event panel ================== -->
+<section class="live-demo" id="scene-pos">
+  <div class="container live-grid">
+    <!-- LEFT: POS tablet -->
+    <div class="live-pos">
+      <div class="live-cap">
+        <span class="live-cap-num">▣ WinX POS</span>
+        <span class="live-cap-meta">Tablet đặt tại quầy · Lan thu ca sáng</span>
+      </div>
+      <div class="tablet-frame tablet-frame-pos">
+        <div class="tablet-screen pos-screen">
+          <div class="pos-topbar">
+            <div class="pos-store">
+              <span class="pos-store-name">Tạp hóa Minh Anh</span>
+              <span class="pos-store-meta">POS-00872 · Lan thu</span>
+            </div>
+            <div class="pos-topbar-r">
+              <span class="pos-pill pos-pill-on">● Đang bán</span>
+              <span class="pos-time" id="posTime">10:42</span>
+            </div>
+          </div>
+
+          <div class="pos-body pos-body-pos">
+            <div class="pos-cart">
+              <div class="pos-cart-title">Giỏ hàng · HĐ #WX-00192</div>
+              <div class="pos-line">
+                <span class="prod-chip prod-omachi">Om</span>
+                <span class="pos-line-name">Mì Omachi sườn hầm</span>
+                <span class="pos-line-qty">x2</span>
+                <span class="pos-line-amt">22.000</span>
+              </div>
+              <div class="pos-line">
+                <span class="prod-chip prod-chinsu">Cs</span>
+                <span class="pos-line-name">Nước mắm Chinsu cá cơm</span>
+                <span class="pos-line-qty">x1</span>
+                <span class="pos-line-amt">38.000</span>
+              </div>
+              <div class="pos-line">
+                <span class="prod-chip prod-wakeup">W</span>
+                <span class="pos-line-name">Wake-Up 247</span>
+                <span class="pos-line-qty">x3</span>
+                <span class="pos-line-amt">36.000</span>
+              </div>
+              <div class="pos-line">
+                <span class="prod-chip prod-vinacafe">Vc</span>
+                <span class="pos-line-name">Vinacafé hòa tan 3in1</span>
+                <span class="pos-line-qty">x1</span>
+                <span class="pos-line-amt">90.000</span>
+              </div>
+              <div class="pos-line pos-line-promo">
+                <span class="prod-chip prod-promo">KM</span>
+                <span class="pos-line-name">MCH "Tết Sum Vầy" tự áp</span>
+                <span class="pos-line-qty"></span>
+                <span class="pos-line-amt">- 5.000</span>
+              </div>
+              <div class="pos-total">
+                <span>Tổng thanh toán</span>
+                <strong>186.000 ₫</strong>
+              </div>
+            </div>
+
+            <div class="pos-side">
+              <div class="pos-side-block">
+                <span class="pos-side-cap">Khách thân thiết</span>
+                <div class="pos-cust">
+                  <div class="pos-cust-avatar">A</div>
+                  <div>
+                    <strong>Chú An</strong>
+                    <span>0907·xxx·128 · Hạng Bạc · Nợ 350k</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pos-side-block">
+                <span class="pos-side-cap">Tồn kho cảnh báo</span>
+                <div class="pos-stock pos-stock-low">
+                  <span>Omachi sườn hầm</span><strong>còn 12 thùng</strong>
+                </div>
+                <div class="pos-stock">
+                  <span>Wake-Up 247</span><strong>còn 28 thùng</strong>
+                </div>
+                <button class="pos-side-btn">+ Đặt thêm từ NPP MCH</button>
+              </div>
+              <div class="pos-side-block pos-side-block-cta">
+                <button class="btn-collect" id="liveCollect">Thu tiền với QR · 186.000 ₫</button>
+                <span class="pos-side-hint" id="liveHint">→ Bấm để xem Business và AI cập nhật real-time</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: cross-product event panel -->
+    <div class="live-panel">
+      <div class="live-panel-head">
+        <span class="lph-title">Cùng một stack · live</span>
+        <span class="lph-status" id="lpStatus"><span class="lph-dot"></span> Đang chờ POS event</span>
+      </div>
+
+      <div class="sys" id="sys-pos" data-sys="pos">
+        <span class="sys-mark sys-mark-pos">POS</span>
+        <div class="sys-meta">
+          <span class="sys-name">WinX POS Engine</span>
+          <span class="sys-line" data-default="Đang chờ giỏ hàng tiếp theo...">Đang chờ giỏ hàng tiếp theo...</span>
+        </div>
+        <span class="sys-pulse"></span>
+      </div>
+
+      <div class="sys" id="sys-vietqr" data-sys="vietqr">
+        <span class="sys-mark sys-mark-vietqr">QR</span>
+        <div class="sys-meta">
+          <span class="sys-name">VietQR · cổng thanh toán</span>
+          <span class="sys-line" data-default="Sẵn sàng phát mã QR động">Sẵn sàng phát mã QR động</span>
+        </div>
+        <span class="sys-pulse"></span>
+      </div>
+
+      <div class="sys" id="sys-biz" data-sys="biz">
+        <span class="sys-mark sys-mark-biz">$</span>
+        <div class="sys-meta">
+          <span class="sys-name">WinX Business · ví doanh nghiệp</span>
+          <span class="sys-line" data-default="Số dư 42.180.000 ₫ · 3 mã QR thu hộ">Số dư 42.180.000 ₫ · 3 mã QR thu hộ</span>
+        </div>
+        <span class="sys-pulse"></span>
+      </div>
+
+      <div class="sys" id="sys-inv" data-sys="inv">
+        <span class="sys-mark sys-mark-inv">≡</span>
+        <div class="sys-meta">
+          <span class="sys-name">Tồn kho · POS data</span>
+          <span class="sys-line" data-default="3.482 SKU đang theo dõi">3.482 SKU đang theo dõi</span>
+        </div>
+        <span class="sys-pulse"></span>
+      </div>
+
+      <div class="sys" id="sys-ai" data-sys="ai">
+        <span class="sys-mark sys-mark-ai">✦</span>
+        <div class="sys-meta">
+          <span class="sys-name">WinX AI · trợ lý cross-product</span>
+          <span class="sys-line" data-default="Đang đọc 90 ngày POS + Business + NPP">Đang đọc 90 ngày POS + Business + NPP</span>
+        </div>
+        <span class="sys-pulse"></span>
+      </div>
+
+      <div class="sys" id="sys-bank" data-sys="bank">
+        <span class="sys-mark sys-mark-bank">⟁</span>
+        <div class="sys-meta">
+          <span class="sys-name">Ngân hàng đối tác · tài khoản đảm bảo</span>
+          <span class="sys-line" data-default="Tài khoản đảm bảo · Bảo mật cấp 3">Tài khoản đảm bảo · Bảo mật cấp 3</span>
+        </div>
+        <span class="sys-pulse"></span>
+      </div>
+
+      <div class="live-foot">
+        <span class="lf-cap">Một cú quẹt POS → cả 6 hệ thống cập nhật cùng database, cùng merchant record.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================== SCENE 2: WINX BUSINESS ================== -->
+<section class="scene scene-light" id="scene-business">
+  <div class="container scene-grid scene-grid-rev">
+    <div class="scene-mockup">
+      <div class="phone-frame">
+        <div class="phone-bezel"></div>
+        <div class="phone-island"></div>
+        <div class="phone-screen biz-screen">
+          <div class="appbar">
+            <div class="appbar-greet">
+              <span class="appbar-hello">Chào cô Minh Anh</span>
+              <span class="appbar-store">Tạp hóa Minh Anh · Bình Tân</span>
+            </div>
+            <div class="appbar-avatar">MA</div>
+          </div>
+          <div class="balance-card">
+            <span class="balance-label">Ví Tạp hóa Minh Anh</span>
+            <span class="balance-value">42.180.000 <small>₫</small></span>
+            <div class="balance-meta">
+              <span class="meta-tag meta-up">▲ 8,42tr hôm nay</span>
+              <span class="meta-tag">3 mã QR</span>
+            </div>
+          </div>
+
+          <div class="quick-actions">
+            <div class="qa"><span class="qa-ic">↓</span><span>Thu</span></div>
+            <div class="qa"><span class="qa-ic">↑</span><span>Chi</span></div>
+            <div class="qa"><span class="qa-ic">⊞</span><span>QR</span></div>
+            <div class="qa"><span class="qa-ic">✦</span><span>AI</span></div>
+          </div>
+
+          <div class="mini-section">
+            <div class="mini-title">Hôm nay · từ WinX POS</div>
+            <div class="mini-row"><span>Doanh số POS</span><strong>8.420.000 ₫</strong></div>
+            <div class="mini-row"><span>QR thu hôm nay</span><strong>5.130.000 ₫</strong></div>
+            <div class="mini-row"><span>Tiền mặt ghi nhận</span><strong>2.740.000 ₫</strong></div>
+          </div>
+
+          <div class="mini-section">
+            <div class="mini-title">Phải trả ngày mai</div>
+            <div class="mini-row"><span>NPP MCH HCMC-07</span><strong>12.400.000 ₫</strong></div>
+            <div class="mini-row"><span>NCC đá viên</span><strong>1.200.000 ₫</strong></div>
+            <div class="mini-row"><span>Phí giao hàng</span><strong>1.000.000 ₫</strong></div>
+          </div>
+
+          <div class="ai-chip">
+            <span class="ai-dot"></span>
+            <span class="ai-text">AI: Hoãn đá viên 2 ngày, trả MCH hôm nay để giữ điểm tín dụng.</span>
+          </div>
+        </div>
+      </div>
+      <span class="mockup-cap">App WinX Business · điện thoại chủ tiệm</span>
+    </div>
+
+    <div class="scene-copy">
+      <span class="scene-num scene-num-biz">WinX Business · ví vận hành</span>
+      <h2 class="section-title">Một <span class="ink-accent">ví doanh nghiệp</span> giữ và vận hành tiền tiệm.</h2>
+      <p class="section-lede">
+        POS bắt sự kiện bán. Business giữ tiền, phân quyền nhân viên, trả NPP, đối soát hóa đơn, đề xuất hạn mức vay.
+        Ví được Ngân hàng Nhà nước cấp phép. Tiền gửi ở ngân hàng đối tác — an toàn như tài khoản ngân hàng.
+      </p>
+
+      <div class="prod-features">
+        <div class="pf-row"><span class="pf-icon">⊞</span><div><strong>3 mã QR theo kênh bán</strong><span>Tại quầy · đơn online · nhân viên đi thu. Dữ liệu vào cùng một ví.</span></div></div>
+        <div class="pf-row"><span class="pf-icon">⚙</span><div><strong>Phân quyền nhân viên</strong><span>Lan thu được nhưng không chuyển khoản. Hạn mức hoàn 300k/ngày.</span></div></div>
+        <div class="pf-row"><span class="pf-icon">⥆</span><div><strong>Trả NPP tự khớp hóa đơn</strong><span>Hệ thống đối hóa đơn với phiếu giao, đề số ròng sau chiết khấu.</span></div></div>
+        <div class="pf-row"><span class="pf-icon">★</span><div><strong>Vay từ doanh số tiệm</strong><span>Ngân hàng đối tác đề xuất hạn mức từ 90 ngày POS, không cần xin giấy.</span></div></div>
+      </div>
+
+      <div class="why-card">
+        <span class="why-tag">Vì sao quan trọng</span>
+        <p>Mỗi merchant trên POS tự động có ví Business. Đây là chỗ "switching cost" hình thành — khi tiền của tiệm sống trong ví, đối thủ phải replace cả stack chứ không thể "cộng thêm".</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================== SCENE 3: WINX AI ================== -->
+<section class="scene scene-dark scene-ai" id="scene-ai">
+  <div class="container">
+    <div class="scene-header center">
+      <div class="scene-num scene-num-ai">WinX AI · trợ lý tiệm</div>
+      <h2 class="section-title section-title-light">Một <span class="ink-coral">trợ lý</span> đọc cả POS, Business, và NPP.</h2>
+      <p class="section-lede section-lede-light center">
+        AI ngồi trên cả hai sản phẩm. Nó biết tiệm bán bao nhiêu, ai bán, nợ ai, hàng còn không, mai phải trả ai.
+        Trả lời câu hỏi thật của chủ tiệm. Cảnh báo trước khi cô nhận ra.
+      </p>
+    </div>
+
+    <div class="ai-stage">
+      <!-- Left: data sources -->
+      <div class="ai-sources">
+        <span class="ais-cap">Lớp dữ liệu AI đọc</span>
+        <div class="ais-card">
+          <span class="ais-icon ais-icon-pos">▣</span>
+          <div>
+            <strong>WinX POS</strong>
+            <span>90 ngày bán hàng · 12k hóa đơn · SKU theo giờ · ca trực nhân viên</span>
+          </div>
+        </div>
+        <div class="ais-card">
+          <span class="ais-icon ais-icon-biz">$</span>
+          <div>
+            <strong>WinX Business</strong>
+            <span>Số dư ví · lịch trả NPP · 96% đúng hạn · pattern dòng tiền</span>
+          </div>
+        </div>
+        <div class="ais-card">
+          <span class="ais-icon ais-icon-npp">▦</span>
+          <div>
+            <strong>NPP MCH</strong>
+            <span>Lịch sử nhập MCH 210tr · khuyến mãi · phiếu giao · chiết khấu Tết</span>
+          </div>
+        </div>
+        <div class="ais-card ais-card-bank">
+          <span class="ais-icon ais-icon-bank">⟁</span>
+          <div>
+            <strong>Ngân hàng đối tác</strong>
+            <span>Pattern thu QR · sức khỏe tín dụng · pre-approved limit</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center: AI brain -->
+      <div class="ai-brain">
+        <div class="ai-brain-orb">
+          <span class="ai-brain-mark">✦</span>
+          <span class="ai-brain-label">WinX AI</span>
+        </div>
+        <div class="ai-brain-pulse"></div>
+      </div>
+
+      <!-- Right: outputs (the agent surfaces) -->
+      <div class="ai-outputs">
+        <span class="aio-cap">AI gửi gì về cho cô</span>
+        <div class="aio-card aio-card-alert">
+          <div class="aio-head"><span class="aio-mark">⚠</span><strong>Cảnh báo hôm nay</strong><span class="aio-time">17:42</span></div>
+          <p>Tiền mặt POS thấp hơn ca thu 550.000 ₫. Lan thu ca 17–18h.</p>
+          <span class="aio-source">↑ POS × Business</span>
+        </div>
+        <div class="aio-card aio-card-action">
+          <div class="aio-head"><span class="aio-mark">⚡</span><strong>Đề xuất hành động</strong><span class="aio-time">21:14</span></div>
+          <p>NPP MCH chiết khấu Tết 420k chưa áp. Trả ròng 11.980.000 ₫ thay vì 12.400.000 ₫.</p>
+          <span class="aio-source">↑ NPP × Business</span>
+        </div>
+        <div class="aio-card aio-card-brief">
+          <div class="aio-head"><span class="aio-mark">📊</span><strong>Báo cáo tuần</strong><span class="aio-time">CN 20:00</span></div>
+          <p>Doanh thu 58,3tr ▲12,4%. Biên 13,9% ▼1,1% — do tỷ trọng nước giải khát tăng. Omachi sắp hết trong 2,5 ngày.</p>
+          <span class="aio-source">↑ POS × Business × NPP</span>
+        </div>
+        <div class="aio-card aio-card-credit">
+          <div class="aio-head"><span class="aio-mark">★</span><strong>Vốn đề xuất</strong><span class="aio-time">cập nhật mỗi ngày</span></div>
+          <p>Đã duyệt sẵn 80–110 triệu ₫. Mục đích: nhập hàng trước tuần lễ hội. Trả góp 8,7tr/tháng.</p>
+          <span class="aio-source">↑ Ngân hàng đối tác</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI chat sample -->
+    <div class="ai-chat ai-chat-platform">
+      <div class="aic-head">
+        <span class="aic-dot"><span class="ai-dot"></span></span>
+        <div class="aic-meta">
+          <span class="aic-name">Trợ lý WinX</span>
+          <span class="aic-status">đang trực tuyến · đọc từ POS · Business · NPP MCH</span>
+        </div>
+      </div>
+      <div class="aic-body">
+        <div class="bubble bubble-user">
+          <p>Tuần này mình có nên nhập thêm <strong>30 triệu</strong> hàng không?</p>
+        </div>
+        <div class="bubble bubble-ai">
+          <p>Được, nhưng phải chọn một trong hai cách:</p>
+          <ul class="bubble-ul">
+            <li>Rút <strong>80 triệu ₫</strong> từ hạn mức đã duyệt sẵn, hoặc</li>
+            <li>Hoãn <strong>12 triệu ₫</strong> công nợ chưa gấp (NCC đá viên, anh Tâm giao hàng).</li>
+          </ul>
+          <p>Đề xuất danh mục nhập:</p>
+          <div class="bubble-buy">
+            <div class="buy-row"><span class="prod-chip prod-omachi">Om</span><span class="buy-name">Mì Omachi (sắp hết)</span><strong>12tr ₫</strong></div>
+            <div class="buy-row"><span class="prod-chip prod-chinsu">Cs</span><span class="buy-name">Chinsu cá cơm</span><strong>8tr ₫</strong></div>
+            <div class="buy-row"><span class="prod-chip prod-wakeup">W</span><span class="buy-name">Wake-Up 247</span><strong>5tr ₫</strong></div>
+            <div class="buy-row"><span class="prod-chip prod-vinacafe">Vc</span><span class="buy-name">Vinacafé / SKU bán chạy</span><strong>5tr ₫</strong></div>
+            <div class="buy-row buy-row-x"><span class="prod-chip prod-x">X</span><span class="buy-name">SKU X (chậm)</span><strong>0 ₫ · tránh</strong></div>
+          </div>
+          <p class="bubble-cap">Mỗi gợi ý dựa trên 90 ngày POS, vòng tồn kho, và lịch sử trả NPP MCH.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================== ARCHITECTURE ================== -->
+<section class="scene scene-light" id="scene-architecture">
+  <div class="container">
+    <div class="scene-header center">
+      <div class="scene-num">Kiến trúc · ba sản phẩm, một stack</div>
+      <h2 class="section-title">Ba mặt tiền. <span class="ink-accent">Cùng một lõi.</span></h2>
+      <p class="section-lede center">
+        Mỗi sản phẩm có giao diện riêng. Bên dưới là cùng một merchant record, cùng một ledger, cùng một bộ ba giấy phép, cùng một ngân hàng giữ tiền.
+      </p>
+    </div>
+
+    <div class="arch-stack">
+      <!-- Top layer: user surfaces -->
+      <div class="arch-layer arch-layer-top">
+        <span class="arch-layer-label">Mặt tiền · user surfaces</span>
+        <div class="arch-cells">
+          <div class="arch-cell arch-cell-pos"><span class="ac-mark">▣</span><strong>WinX POS</strong><span>Tablet tại quầy · scan, in, thu QR</span></div>
+          <div class="arch-cell arch-cell-biz"><span class="ac-mark">$</span><strong>WinX Business</strong><span>Điện thoại chủ tiệm · ví, chi NPP, dashboard</span></div>
+          <div class="arch-cell arch-cell-ai"><span class="ac-mark">✦</span><strong>WinX AI</strong><span>Trên cả hai · cảnh báo, brief tuần, agent</span></div>
+        </div>
+      </div>
+
+      <!-- Middle layer: shared data graph -->
+      <div class="arch-layer arch-layer-mid">
+        <span class="arch-layer-label">Lõi · merchant data graph</span>
+        <div class="arch-cells-mid">
+          <div class="arch-pill">Merchant record</div>
+          <div class="arch-pill">Inventory · POS</div>
+          <div class="arch-pill">Ledger · ví</div>
+          <div class="arch-pill">Payables · NPP</div>
+          <div class="arch-pill">Audit log</div>
+          <div class="arch-pill">Credit score</div>
+        </div>
+      </div>
+
+      <!-- License layer -->
+      <div class="arch-layer arch-layer-license">
+        <span class="arch-layer-label">Khung pháp lý · MBC sở hữu giấy phép NHNN</span>
+        <div class="arch-cells">
+          <div class="arch-cell arch-cell-lic"><span class="ac-mark">Ví</span><strong>Ví điện tử</strong><span>WinX giữ ví doanh nghiệp</span></div>
+          <div class="arch-cell arch-cell-lic"><span class="ac-mark">TC</span><strong>Thu/Chi hộ</strong><span>VA cho từng kênh bán</span></div>
+          <div class="arch-cell arch-cell-lic"><span class="ac-mark">CT</span><strong>Cổng thanh toán</strong><span>Định tuyến QR · thẻ</span></div>
+        </div>
+      </div>
+
+      <!-- Bank layer -->
+      <div class="arch-layer arch-layer-bank">
+        <span class="arch-layer-label">Hậu phương · ngân hàng đối tác</span>
+        <div class="arch-bank-row">
+          <strong>Tài khoản đảm bảo · giữ tiền của tiệm</strong>
+          <span>Không trộn lẫn ví và thu/chi hộ · Bảo mật cấp 3 · ISO 27001</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-card">
+      <span class="why-tag">Vì sao stack này quan trọng</span>
+      <p>Không phải ba sản phẩm rời nhau bắt cầu API. Một merchant đăng ký một lần, có sẵn ba mặt tiền. Một bộ giấy phép cấp NHNN, một ngân hàng giữ tiền. Dữ liệu đi thẳng, không qua trung gian — không mất, không trả phí giữa các tầng.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================== CLOSING / PHASE 0 ASK ================== -->
+<section class="closing" id="closing">
+  <div class="closing-fireflies" aria-hidden="true">
+    <span class="firefly"></span><span class="firefly"></span><span class="firefly"></span>
+    <span class="firefly"></span><span class="firefly"></span><span class="firefly"></span>
+  </div>
+  <div class="container closing-grid">
+    <div class="closing-left">
+      <span class="eyebrow"><span class="dot"></span> Đề xuất 90 ngày · platform pilot</span>
+      <h2 class="closing-title">
+        <span class="ink-accent">Một nền tảng</span>,<br/>
+        cho 50.000 tiệm Việt Nam.
+      </h2>
+      <p class="closing-lede">
+        90 ngày Phase 0: 5.000 tiệm trong 3 tỉnh, có cả ba sản phẩm (POS · Business · AI),
+        chia sẻ một merchant record, vận hành trên ba giấy phép sẵn có và một ngân hàng đối tác.
+        Mục tiêu: chứng minh switching cost và unit economics trước khi mở rộng diện rộng.
+      </p>
+
+      <div class="closing-pills">
+        <span class="pill pill-strong">90 ngày</span>
+        <span class="pill">5.000 tiệm · 3 tỉnh</span>
+        <span class="pill">POS + Business + AI</span>
+        <span class="pill">Bank-direct</span>
+        <span class="pill">Một merchant record</span>
+      </div>
+
+      <div class="closing-team">
+        <span class="ct-cap">Đề xuất leadership (đang khảo sát)</span>
+        <p><strong>Giacomo Ficari</strong> · đồng sáng lập Aspire (SEA SME operating account, last valuation USD 1.5bn), founder Lifepal (Indonesia, exited Fuse). Hiện ở Moonshot AI · Trung Quốc.</p>
+      </div>
+    </div>
+
+    <div class="closing-right">
+      <div class="ask-card">
+        <span class="ask-tag">Phase 0 · tiệm có gì sau 90 ngày</span>
+        <p class="ask-supervised">Vận hành dưới giám sát Ngân hàng Nhà nước Việt Nam.</p>
+        <ul class="ask-list">
+          <li><span class="ok-dot ok-strong">✓</span> Máy POS đứng quầy · thu QR, scan, in</li>
+          <li><span class="ok-dot ok-strong">✓</span> Ví doanh nghiệp riêng · đứng tên tiệm</li>
+          <li><span class="ok-dot ok-strong">✓</span> Trợ lý AI · cảnh báo, brief tuần, chat</li>
+          <li><span class="ok-dot ok-strong">✓</span> Trả NPP MCH tự khớp hóa đơn</li>
+          <li><span class="ok-dot ok-strong">✓</span> Phân quyền nhân viên · log kiểm toán</li>
+          <li><span class="ok-dot ok-strong">✓</span> Hạn mức vay từ ngân hàng đối tác</li>
+        </ul>
+        <div class="ask-refs">
+          <span class="ar-cap">Tham chiếu global</span>
+          <div class="ar-row"><strong>Wise Business</strong><span>613k khách · £145bn TPV · 21% PBT</span></div>
+          <div class="ar-row"><strong>Mercury</strong><span>300k khách · USD 650m ARR · USD 3.5bn valuation</span></div>
+          <div class="ar-row"><strong>Aspire (SEA)</strong><span>USD 1.5bn valuation · USD 12bn TPV</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================== FOOTER ================== -->
+<footer class="footer">
+  <div class="footer-ribbon">
+    <div class="footer-ribbon-inner">
+      <div class="footer-ribbon-text">
+        Tiền của tiệm gửi ở ngân hàng có giấy phép Ngân hàng Nhà nước Việt Nam. WinX có ba giấy phép Trung gian thanh toán và đạt chuẩn an toàn thông tin cấp 3.
+      </div>
+      <div class="footer-ribbon-badges">
+        <span class="lic-badge"><span class="lic-mark">Ví</span>Ví điện tử<span class="lic-issuer">NHNN</span></span>
+        <span class="lic-badge"><span class="lic-mark">TC</span>Thu/Chi hộ<span class="lic-issuer">NHNN</span></span>
+        <span class="lic-badge"><span class="lic-mark">CT</span>Cổng TT<span class="lic-issuer">NHNN</span></span>
+        <span class="lic-badge"><span class="lic-mark">A3</span>Bảo mật cấp 3<span class="lic-issuer">BCA</span></span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark"><svg viewBox="0 0 36 36" width="22" height="22"><rect width="36" height="36" rx="9" fill="currentColor"/><path d="M9 11l4.5 14M22.5 11L18 25M14 11l4 8 4-8" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+      <span class="footer-name">WinX <strong>Platform</strong></span>
+    </div>
+    <div class="footer-meta">
+      <span>Demo nội bộ · Masan · 2026</span>
+      <span class="footer-disc">Mọi số liệu trong demo là minh họa cho mục đích thuyết trình nội bộ. Không phải sản phẩm thương mại.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- side dot nav -->
+<aside class="side-nav" aria-hidden="true">
+  <a href="#hero" class="sn-dot" data-target="hero" title="Mở đầu"></a>
+  <a href="#scene-pos" class="sn-dot" data-target="scene-pos" title="WinX POS"></a>
+  <a href="#scene-business" class="sn-dot" data-target="scene-business" title="WinX Business"></a>
+  <a href="#scene-ai" class="sn-dot" data-target="scene-ai" title="WinX AI"></a>
+  <a href="#scene-architecture" class="sn-dot" data-target="scene-architecture" title="Kiến trúc"></a>
+  <a href="#closing" class="sn-dot" data-target="closing" title="Phase 0"></a>
+</aside>
+
+<script src="platform.js" defer></script>
+</body>
+</html>
