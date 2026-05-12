@@ -70,6 +70,11 @@
       activeCampaigns: 5,
     },
 
+    compliance: {
+      einv: true,
+      tax:  true,
+    },
+
     posBusy: false,
   };
   let state = clone(initial);
@@ -326,7 +331,11 @@
     logEvent('pos',    `Quét QR thành công · NAPAS247 đối soát 0,4 giây`, time);
 
     if (posQrCard) posQrCard.classList.remove('is-on');
-    if (posQrDoneSub) posQrDoneSub.innerHTML = `HĐĐT-MTT #${invoiceNum} · NĐ70 · ↗ ví`;
+    if (posQrDoneSub){
+      posQrDoneSub.innerHTML = state.compliance.einv
+        ? `HĐĐT-MTT #${invoiceNum} · NĐ70 · ↗ ví`
+        : `Đã thu · HĐĐT thủ công (NĐ 70 đang tắt) · ↗ ví`;
+    }
     if (posQrDone) posQrDone.classList.add('is-on');
 
     state.balance      += amt;
@@ -348,7 +357,11 @@
     logEvent('biz',  `+${fmtVnd(amt)} ₫ vào ví · giữ tại NH đối tác · TK đảm bảo`, time);
 
     await wait(200);
-    logEvent('einv', `<strong>HĐĐT-MTT #${invoiceNum}</strong> phát hành theo Nghị định 70 · gửi GDT`, time);
+    if (state.compliance.einv){
+      logEvent('einv', `<strong>HĐĐT-MTT #${invoiceNum}</strong> phát hành theo Nghị định 70 · gửi GDT`, time);
+    } else {
+      logEvent('compl', `Lưu giao dịch thủ công · HĐĐT-MTT đang tắt · NĐ 70 vẫn bắt buộc, cần phát hành sau`, time);
+    }
 
     await wait(200);
     logEvent('inv',  `Trừ tồn · Om −2 · Cs −1 · W −3 · Vc −1`, time);
@@ -411,7 +424,11 @@
     flashPanel('pos');
 
     await wait(220);
-    logEvent('einv', `<strong>HĐĐT-MTT #${invoiceNum}</strong> phát hành theo Nghị định 70 · MST khách: cá nhân`, time);
+    if (state.compliance.einv){
+      logEvent('einv', `<strong>HĐĐT-MTT #${invoiceNum}</strong> phát hành theo Nghị định 70 · MST khách: cá nhân`, time);
+    } else {
+      logEvent('compl', `Ghi sổ thủ công · HĐĐT đang tắt · NĐ 70 vẫn bắt buộc phát hành cho giao dịch này`, time);
+    }
 
     await wait(220);
     logEvent('biz', `Sổ nợ Chú An: 350k → <strong>${fmtVnd(state.debt.customers.anh.amt)}</strong> ₫ · 18 ngày`, time);
@@ -796,6 +813,54 @@
   $('#posLoyaltyBanner')?.addEventListener('click', () => openModal('modalLoyalty'));
   $('#ckLoyaltyCard')?.addEventListener('click', () => openModal('modalLoyalty'));
 
+  /* ---------- COMPLIANCE TOGGLES (NĐ 70 + NQ 198) ---------- */
+  function renderComplianceWarning(){
+    const w = $('#pcWarning');
+    if (!w) return;
+    const msgs = [];
+    if (!state.compliance.einv){
+      msgs.push('<strong>HĐĐT-MTT đang tắt</strong> · NĐ 70/2025/NĐ-CP bắt buộc HKD bán lẻ doanh thu ≥ 1 tỷ/năm phải phát hành hoá đơn điện tử khởi tạo từ máy tính tiền. Tắt chỉ để demo — thực tế bạn phải tự gửi GDT.');
+    }
+    if (!state.compliance.tax){
+      msgs.push('<strong>Tự kê khai thuế đang tắt</strong> · NQ 198/2025/QH15 bỏ thuế khoán từ 1/1/2026. HKD phải kê khai theo doanh thu thực tế qua eTax Mobile.');
+    }
+    if (msgs.length){
+      w.hidden = false;
+      w.innerHTML = '⚠ ' + msgs.join('<br>⚠ ');
+    } else {
+      w.hidden = true;
+      w.innerHTML = '';
+    }
+  }
+
+  function toggleCompliance(feature){
+    state.compliance[feature] = !state.compliance[feature];
+    const btnId = feature === 'einv' ? 'pcToggleEinv' : 'pcToggleTax';
+    const btn = document.getElementById(btnId);
+    if (btn){
+      btn.classList.toggle('is-on', state.compliance[feature]);
+      btn.setAttribute('aria-pressed', state.compliance[feature] ? 'true' : 'false');
+      const status = btn.querySelector('.pc-status');
+      if (status) status.textContent = state.compliance[feature] ? 'BẬT · auto' : 'TẮT · thủ công';
+    }
+    renderComplianceWarning();
+    flashPanel(feature === 'einv' ? 'pos' : 'biz');
+    const time = now();
+    if (feature === 'einv'){
+      logEvent('compl', state.compliance.einv
+        ? `BẬT HĐĐT-MTT · NĐ 70/2025 · auto phát hành về GDT mỗi giao dịch`
+        : `TẮT HĐĐT-MTT · chỉ để demo · thực tế HKD ≥ 1 tỷ/năm bắt buộc theo NĐ 70/2025`, time);
+    } else {
+      logEvent('compl', state.compliance.tax
+        ? `BẬT tự kê khai thuế · NQ 198/2025/QH15 · VAT 1% + TNCN 0,5% từ HĐĐT-MTT`
+        : `TẮT tự kê khai · chỉ để demo · từ 1/1/2026 HKD bắt buộc kê khai theo doanh thu thực tế`, time);
+    }
+  }
+
+  $('#pcToggleEinv')?.addEventListener('click', () => toggleCompliance('einv'));
+  $('#pcToggleTax')?.addEventListener('click', () => toggleCompliance('tax'));
+  $('#pcOpenTax')?.addEventListener('click', () => openModal('modalTax'));
+
   /* ---------- LOYALTY MODAL ACTIONS ---------- */
   $('#lcCrossSell')?.addEventListener('click', () => {
     if (state.loyalty.crossSellSent) return;
@@ -994,6 +1059,18 @@
       rsBtn.disabled = false;
       rsBtn.textContent = 'Tạo PO & gửi NPP MCH HCM-07';
     }
+    // compliance toggles reset to ON (default & legally mandatory)
+    ['Einv','Tax'].forEach(f => {
+      const b = $('#pcToggle' + f);
+      if (b){
+        b.classList.add('is-on');
+        b.setAttribute('aria-pressed', 'true');
+        const s = b.querySelector('.pc-status');
+        if (s) s.textContent = 'BẬT · auto';
+      }
+    });
+    renderComplianceWarning();
+
     // loyalty reset
     const csBtn = $('#lcCrossSell');
     if (csBtn){

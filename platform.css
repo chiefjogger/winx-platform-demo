@@ -416,28 +416,141 @@
   letter-spacing: -.01em;
 }
 
-/* e-invoice stamp (smaller, less prominent than v1) */
-.pos-einv-stamp{
-  display: flex; align-items: center; gap: 8px;
+/* ===== Compliance toggles · NĐ 70 + NQ 198 ===== */
+.pos-compliance{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
   margin-top: 12px;
-  padding: 8px 12px;
-  background: rgba(46,213,115,.10);
-  border: 1px solid rgba(46,213,115,.30);
-  border-radius: 9px;
-  font-size: 12px;
+}
+.pc-toggle{
+  display: flex; flex-direction: column;
+  align-items: stretch;
+  gap: 7px;
+  padding: 11px 13px 10px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 11px;
+  cursor: pointer;
+  text-align: left;
+  position: relative;
+  transition: background .22s, border-color .22s, transform .12s;
+  color: rgba(255,255,255,.92);
+}
+.pc-toggle:hover{
+  background: rgba(255,255,255,.09);
+  transform: translateY(-1px);
+}
+.pc-toggle.is-on{
+  background: linear-gradient(135deg, rgba(46,213,115,.20), rgba(46,213,115,.08));
+  border-color: rgba(46,213,115,.45);
+}
+.pc-toggle.is-on:hover{
+  background: linear-gradient(135deg, rgba(46,213,115,.28), rgba(46,213,115,.14));
+}
+.pc-toggle-row{
+  display: flex; align-items: center; gap: 10px;
+}
+.pc-switch{
+  position: relative;
+  width: 40px; height: 22px;
+  background: rgba(255,255,255,.22);
+  border-radius: 999px;
+  flex-shrink: 0;
+  transition: background .25s;
+}
+.pc-switch::after{
+  content: '';
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 18px; height: 18px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,.35);
+  transition: transform .25s;
+}
+.pc-toggle.is-on .pc-switch{ background: #2ED573; }
+.pc-toggle.is-on .pc-switch::after{ transform: translateX(18px); }
+
+.pc-title{
+  display: flex; flex-direction: column;
+  flex: 1; min-width: 0;
+}
+.pc-title strong{
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #FFF;
+  letter-spacing: -.005em;
+  line-height: 1.2;
+}
+.pc-cite{
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: rgba(255,255,255,.55);
+  margin-top: 2px;
+}
+.pc-toggle.is-on .pc-cite{ color: rgba(181,248,204,.78); }
+.pc-sub{
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: rgba(255,255,255,.65);
+}
+.pc-toggle.is-on .pc-sub{ color: #C8FFD9; }
+.pc-status{
+  position: absolute;
+  top: 9px; right: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.65);
+}
+.pc-toggle.is-on .pc-status{
+  background: rgba(46,213,115,.30);
   color: #B5F8CC;
 }
-.pos-einv-tick{
-  width: 18px; height: 18px;
-  background: #2ED573;
-  color: #0F1B33;
-  font-weight: 800;
-  font-size: 11px;
-  border-radius: 5px;
-  display: inline-flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
+
+.pc-actions{
+  display: flex; gap: 8px;
+  margin-top: 6px;
 }
-.pos-einv-stamp > span{ flex: 1; }
+.pc-mini{
+  background: transparent;
+  border: 1px dashed rgba(255,255,255,.28);
+  color: rgba(255,255,255,.78);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.pc-mini:hover{
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.5);
+  color: white;
+}
+
+.pc-warning{
+  margin-top: 8px;
+  padding: 10px 12px;
+  background: rgba(194,129,22,.18);
+  border: 1px solid rgba(194,129,22,.4);
+  border-radius: 10px;
+  font-size: 11.5px;
+  color: #F4C76B;
+  line-height: 1.5;
+  animation: ckPopIn .25s ease-out;
+}
+.pc-warning strong{ color: #FFE49A; font-weight: 700; }
+.pc-warning + .pos-loyalty{ margin-top: 8px; }
+
+/* Legacy fallback for old class hooks (in case any reference lingers) */
 .pos-einv-mini{
   background: transparent;
   border: 1px solid rgba(46,213,115,.4);

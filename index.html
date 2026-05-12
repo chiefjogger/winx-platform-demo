@@ -116,11 +116,35 @@
         </div>
       </div>
 
-      <div class="pos-einv-stamp">
-        <span class="pos-einv-tick">✓</span>
-        <span>Tự phát hành HĐĐT-MTT (Nghị định 70) · MST khách nếu có</span>
-        <button type="button" class="pos-einv-mini" id="posEinvView">Xem mẫu</button>
+      <div class="pos-compliance" role="group" aria-label="Tích hợp tuân thủ thuế & hoá đơn">
+        <button type="button" class="pc-toggle is-on" id="pcToggleEinv" aria-pressed="true">
+          <div class="pc-toggle-row">
+            <span class="pc-switch" aria-hidden="true"></span>
+            <div class="pc-title">
+              <strong>HĐĐT-MTT</strong>
+              <span class="pc-cite">NĐ 70/2025</span>
+            </div>
+          </div>
+          <span class="pc-sub">Auto phát hành về GDT mỗi giao dịch</span>
+          <span class="pc-status">BẬT · auto</span>
+        </button>
+        <button type="button" class="pc-toggle is-on" id="pcToggleTax" aria-pressed="true">
+          <div class="pc-toggle-row">
+            <span class="pc-switch" aria-hidden="true"></span>
+            <div class="pc-title">
+              <strong>Tự kê khai thuế</strong>
+              <span class="pc-cite">NQ 198/2025 · TT 40/2021</span>
+            </div>
+          </div>
+          <span class="pc-sub">VAT 1% + TNCN 0,5% từ HĐĐT-MTT</span>
+          <span class="pc-status">BẬT · auto</span>
+        </button>
       </div>
+      <div class="pc-actions">
+        <button type="button" class="pc-mini" id="posEinvView">Xem mẫu HĐĐT →</button>
+        <button type="button" class="pc-mini" id="pcOpenTax">Xem khai thuế tháng →</button>
+      </div>
+      <div class="pc-warning" id="pcWarning" hidden></div>
 
       <button type="button" class="pos-loyalty" id="posLoyaltyBanner">
         <span class="pl-spark">🎁</span>
@@ -662,13 +686,13 @@
       <button type="button" class="ck-modal-x" data-close aria-label="Đóng">✕</button>
     </header>
     <div class="ck-modal-body">
-      <p class="ck-modal-lede">Tạp hoá Minh Anh là hộ kinh doanh, đóng thuế theo phương pháp khoán: tỷ lệ % trên doanh thu (NĐ 126/2020/NĐ-CP &amp; TT 40/2021/TT-BTC, hàng hoá 1,5%).</p>
+      <p class="ck-modal-lede">Từ <strong>1/1/2026</strong> hộ kinh doanh bỏ phương pháp khoán (NQ 198/2025/QH15) — Tạp hoá Minh Anh kê khai theo doanh thu thực tế từ HĐĐT-MTT. Tỷ lệ % trên doanh thu (TT 40/2021/TT-BTC, hàng hoá): VAT 1% + TNCN 0,5% = 1,5%.</p>
       <div class="tax-row"><span>Doanh thu tháng (từ 312 HĐĐT-MTT)</span><strong>247.000.000 ₫</strong></div>
-      <div class="tax-row"><span>VAT khoán (1%)</span><strong>2.470.000 ₫</strong></div>
-      <div class="tax-row"><span>TNCN khoán (0,5%)</span><strong>1.235.000 ₫</strong></div>
+      <div class="tax-row"><span>VAT kê khai (1%)</span><strong>2.470.000 ₫</strong></div>
+      <div class="tax-row"><span>TNCN kê khai (0,5%)</span><strong>1.235.000 ₫</strong></div>
       <div class="tax-row tax-row-net"><span>Tổng thuế tháng phải nộp</span><strong>3.705.000 ₫</strong></div>
-      <p class="ck-modal-note">WinX tự tổng hợp doanh thu từ HĐĐT-MTT (Nghị định 70/2025) và sinh hồ sơ khai thuế tháng. Đến hạn nộp: 20/06. Nếu tiệm chuyển sang DN, WinX tự chuyển sang khai VAT khấu trừ.</p>
-      <button type="button" class="ck-cta-primary" id="taxFile">Nộp lên cổng GDT</button>
+      <p class="ck-modal-note">WinX tự tổng hợp doanh thu từ HĐĐT-MTT theo Nghị định 70/2025/NĐ-CP, sinh hồ sơ khai thuế và nộp qua eTax Mobile. Đến hạn nộp tháng: 20/06. Doanh thu năm ước 3 tỷ — trên ngưỡng miễn thuế 1 tỷ/năm (NĐ 68/2026/NĐ-CP).</p>
+      <button type="button" class="ck-cta-primary" id="taxFile">Nộp lên cổng GDT qua eTax Mobile</button>
     </div>
   </div>
 </div>
