@@ -122,6 +122,12 @@
         <button type="button" class="pos-einv-mini" id="posEinvView">Xem mẫu</button>
       </div>
 
+      <button type="button" class="pos-loyalty" id="posLoyaltyBanner">
+        <span class="pl-spark">🎁</span>
+        <span class="pl-text"><strong>Chú An</strong> có <strong>3 voucher Masan</strong> sẵn · Nam Ngư · Chin-Su · MEATDeli</span>
+        <span class="pl-cta">Áp dụng →</span>
+      </button>
+
       <div class="pos-qr-stage" id="posQrStage">
         <div class="pos-qr-empty" id="posQrEmpty">
           <button type="button" class="btn-collect ck-cta-primary" id="posCollect">
@@ -278,30 +284,42 @@
       </div>
     </div>
 
-    <button type="button" class="ck-card ck-card-staff" id="ckStaffCard" aria-label="Mở ma trận phân quyền">
+    <button type="button" class="ck-card ck-card-loyalty" id="ckLoyaltyCard" aria-label="Mở loyalty &amp; voucher console">
+      <header class="ck-card-h">
+        <strong>Hoa hồng loyalty · Masan brands</strong>
+        <span class="ck-card-h-sum">tháng này · ▲ 12% MoM</span>
+      </header>
+      <div class="lc-hero">
+        <strong class="lc-amt"><span id="loyaltyMonth">1.870.000</span> ₫</strong>
+        <span class="lc-hero-sub">trên 5 chiến dịch brand đang chạy · cập nhật khi khách đổi voucher</span>
+      </div>
+      <div class="lc-brand-chips">
+        <span class="brand-chip brand-chip-omachi">Om · Omachi</span>
+        <span class="brand-chip brand-chip-namngu">Nn · Nam Ngư x10</span>
+        <span class="brand-chip brand-chip-chinsu">Cs · Chin-Su Tết</span>
+        <span class="brand-chip brand-chip-meatdeli">Md · MEATDeli</span>
+        <span class="brand-chip brand-chip-heonhi">Hn · Heo Nhỉ</span>
+      </div>
+      <div class="lc-today">
+        <span><strong id="loyaltyScans">12</strong> lượt scan hôm nay</span>
+        <span><strong id="loyaltyRedeems">4</strong> voucher đổi tại tiệm</span>
+        <span class="lc-today-money">+ <strong id="loyaltyToday">53.000</strong> ₫ hôm nay</span>
+      </div>
+      <span class="ck-card-cta">Bấm để xem bảng chiến dịch + đặt POSM →</span>
+    </button>
+
+    <button type="button" class="ck-card ck-card-staff ck-card-compact" id="ckStaffCard" aria-label="Mở ma trận phân quyền &amp; audit log">
       <header class="ck-card-h">
         <strong>Nhân viên &amp; phân quyền</strong>
-        <span class="ck-card-h-sum">3 nhân viên + chủ tiệm</span>
+        <span class="ck-card-h-sum">4 người · Lan thu / Cô MA chi</span>
       </header>
-      <ul class="ck-staff-list" id="ckStaffList">
-        <li class="st-row" data-staff="lan">
-          <span class="st-avatar st-avatar-lan">L</span>
-          <div class="st-meta"><strong>Lan · thu ngân</strong><span>Chỉ thu, không chi · 38% DT</span></div>
-        </li>
-        <li class="st-row" data-staff="huy">
-          <span class="st-avatar st-avatar-huy">H</span>
-          <div class="st-meta"><strong>Huy · bán hàng</strong><span>Chỉ thu, không chi · 29% DT</span></div>
-        </li>
-        <li class="st-row" data-staff="mai">
-          <span class="st-avatar st-avatar-mai">M</span>
-          <div class="st-meta"><strong>Mai · kế toán</strong><span>Đối soát · chi tối đa 2 triệu · 18% DT</span></div>
-        </li>
-        <li class="st-row st-row-owner" data-staff="owner">
-          <span class="st-avatar st-avatar-owner">MA</span>
-          <div class="st-meta"><strong>Cô Minh Anh · chủ</strong><span>Toàn quyền · duyệt &gt; 1tr</span></div>
-        </li>
-      </ul>
-      <span class="ck-card-cta">Bấm để xem chi tiết quyền + audit log →</span>
+      <div class="ck-staff-strip" id="ckStaffList">
+        <span class="st-row" data-staff="lan"><span class="st-avatar st-avatar-lan">L</span></span>
+        <span class="st-row" data-staff="huy"><span class="st-avatar st-avatar-huy">H</span></span>
+        <span class="st-row" data-staff="mai"><span class="st-avatar st-avatar-mai">M</span></span>
+        <span class="st-row st-row-owner" data-staff="owner"><span class="st-avatar st-avatar-owner">MA</span></span>
+        <span class="ck-staff-strip-cta">Xem audit log →</span>
+      </div>
     </button>
   </section>
 
@@ -347,6 +365,7 @@
         </div>
       </div>
       <div class="aic-suggest" id="aicSuggest">
+        <button type="button" class="suggest-pill" data-q="loyalty">Brand nào trả hoa hồng nhiều nhất?</button>
         <button type="button" class="suggest-pill" data-q="debt">Khách nào nợ lâu nhất?</button>
         <button type="button" class="suggest-pill" data-q="skux">SKU X tồn 38 ngày — làm gì?</button>
         <button type="button" class="suggest-pill" data-q="nhap30">Tuần này nhập 30tr được không?</button>
@@ -735,6 +754,108 @@
       </table>
       <div class="rs-total"><span>Tổng PO đề xuất</span><strong>20.400.000 ₫</strong></div>
       <button type="button" class="ck-cta-primary" id="rsPo">Tạo PO &amp; gửi NPP MCH HCM-07</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================== MODAL: LOYALTY CONSOLE ================== -->
+<div class="ck-modal" id="modalLoyalty" hidden role="dialog" aria-modal="true" aria-labelledby="modalLoyaltyTitle">
+  <div class="ck-modal-back" data-close></div>
+  <div class="ck-modal-card ck-modal-card-wide">
+    <header class="ck-modal-h">
+      <h3 id="modalLoyaltyTitle">Loyalty &amp; voucher · brand-funded từ Masan</h3>
+      <button type="button" class="ck-modal-x" data-close aria-label="Đóng">✕</button>
+    </header>
+    <div class="ck-modal-body">
+      <p class="ck-modal-lede">Brands (Chin-Su, Nam Ngư, Omachi, MEATDeli, Heo Nhỉ) trả ngân sách loyalty về tiệm. Khách scan QR sản phẩm trong Zalo Mini App → tích điểm → đổi voucher tại tiệm. Cô Minh Anh nhận hoa hồng cho mỗi voucher đổi.</p>
+
+      <div class="lc-kpi-row">
+        <div class="lc-kpi"><span>Hoa hồng tháng này</span><strong>1.870.000 ₫</strong><em class="wk-up">▲ 12% MoM</em></div>
+        <div class="lc-kpi"><span>Voucher đổi tại tiệm · tháng</span><strong>108</strong><em>5 brand · 47 khách</em></div>
+        <div class="lc-kpi"><span>Uplift doanh số brand SKU</span><strong>+12%</strong><em>chạm brand · trung bình GT +6%</em></div>
+        <div class="lc-kpi lc-kpi-rank"><span>Xếp hạng GT redeem rate</span><strong>Top 8%</strong><em>CR3 18% vs 11% GT</em></div>
+      </div>
+
+      <div class="lc-section">
+        <span class="ck-mini-cap">Chiến dịch brand đang chạy · cập nhật từ Tết Vàng Đến Ví 2026</span>
+        <table class="lc-table">
+          <thead><tr><th>Brand</th><th>Scan tỷ lệ</th><th>Đổi voucher</th><th>Hoa hồng tháng</th><th>Hết hạn</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="brand-chip brand-chip-omachi">Om</span>Omachi Thần Tốc</td>
+              <td>5,5%</td><td><strong class="lc-cr-best">41%</strong></td>
+              <td><strong>510.000 ₫</strong></td><td>28/02</td>
+            </tr>
+            <tr>
+              <td><span class="brand-chip brand-chip-namngu">Nn</span>Nam Ngư x10 điểm</td>
+              <td>3,8%</td><td><strong>16%</strong></td>
+              <td><strong>480.000 ₫</strong></td><td>28/02</td>
+            </tr>
+            <tr>
+              <td><span class="brand-chip brand-chip-chinsu">Cs</span>Chin-Su Tết Tốt</td>
+              <td>3,2%</td><td><strong>15,8%</strong></td>
+              <td><strong>420.000 ₫</strong></td><td>28/02</td>
+            </tr>
+            <tr>
+              <td><span class="brand-chip brand-chip-meatdeli">Md</span>MEATDeli combo</td>
+              <td>2,1%</td><td><strong>22%</strong></td>
+              <td><strong>280.000 ₫</strong></td><td>15/05</td>
+            </tr>
+            <tr>
+              <td><span class="brand-chip brand-chip-heonhi">Hn</span>Heo Nhỉ tiết kiệm</td>
+              <td>0,9%</td><td><strong>11%</strong></td>
+              <td><strong>180.000 ₫</strong></td><td>10/05</td>
+            </tr>
+          </tbody>
+          <tfoot><tr><td colspan="3">Tổng hoa hồng tháng</td><td colspan="2"><strong>1.870.000 ₫</strong></td></tr></tfoot>
+        </table>
+      </div>
+
+      <div class="lc-section">
+        <span class="ck-mini-cap">Khách đổi voucher tại tiệm hôm nay</span>
+        <ul class="lc-redeemers">
+          <li>
+            <span class="dt-avatar">An</span>
+            <div><strong>Chú An</strong><span>11:02 · đổi voucher Nam Ngư −20.000 ₫</span></div>
+            <strong class="lc-comm">+ 15k hoa hồng</strong>
+          </li>
+          <li>
+            <span class="dt-avatar dt-avatar-2">Hg</span>
+            <div><strong>Chị Hương</strong><span>10:48 · đổi voucher Chin-Su −10.000 ₫</span></div>
+            <strong class="lc-comm">+ 8k</strong>
+          </li>
+          <li>
+            <span class="dt-avatar dt-avatar-3">Tà</span>
+            <div><strong>Anh Tài</strong><span>10:20 · đổi voucher MEATDeli −15.000 ₫</span></div>
+            <strong class="lc-comm">+ 12k</strong>
+          </li>
+          <li>
+            <span class="dt-avatar dt-avatar-4">CL</span>
+            <div><strong>Cô Lan</strong><span>09:32 · đổi voucher Omachi −25.000 ₫</span></div>
+            <strong class="lc-comm">+ 18k</strong>
+          </li>
+        </ul>
+      </div>
+
+      <div class="lc-cross">
+        <span class="lc-cross-mark">✦ AI</span>
+        <div class="lc-cross-body">
+          <strong>Cơ hội cross-sell</strong>
+          <p>Chú An đã mua Chin-Su + Nam Ngư trong tháng. Khách có cùng giỏ hàng này lên MEATDeli với CR3 <strong>21,2%</strong> (so với trung bình 11%). Gợi ý gửi combo MEATDeli qua VietQR có voucher kèm.</p>
+          <button type="button" class="ck-cta-secondary" id="lcCrossSell">Gửi gợi ý combo MEATDeli cho Chú An →</button>
+        </div>
+      </div>
+
+      <div class="lc-section">
+        <span class="ck-mini-cap">POSM &amp; vật phẩm brand cho tiệm</span>
+        <ul class="lc-posm">
+          <li><strong>Standee Nam Ngư x10</strong><span>60×160cm · giao 2 ngày · Masan tài trợ 100%</span><button type="button" class="ck-cta-secondary lc-posm-btn" data-posm="standee-nn">Đặt</button></li>
+          <li><strong>Bộ sticker giá Chin-Su Tết</strong><span>50 cái · giao 1 ngày · miễn phí</span><button type="button" class="ck-cta-secondary lc-posm-btn" data-posm="sticker-cs">Đặt</button></li>
+          <li><strong>Banner Omachi Thần Tốc</strong><span>100×30cm · gắn quầy · miễn phí</span><button type="button" class="ck-cta-secondary lc-posm-btn" data-posm="banner-om">Đặt</button></li>
+        </ul>
+      </div>
+
+      <div class="ck-modal-note">Tham chiếu One Tết 2026: 254K hội viên mới, 2,4M voucher phát, CR3 trung bình 15,2%. GT retailer top được rebate hoa hồng + POSM + uplift doanh số brand SKU. Brands trả ~7% ngân sách media về tiệm dưới dạng hoa hồng và POSM thay vì chỉ in pano cứng.</div>
     </div>
   </div>
 </div>

@@ -60,6 +60,16 @@
 
     loan: { drawn: false, drawAmt: 80_000_000 },
 
+    loyalty: {
+      monthlyCommission: 1_870_000,
+      todayScans: 12,
+      todayRedemptions: 4,
+      todayCommission: 53_000,
+      crossSellSent: false,
+      posmOrdered: {},
+      activeCampaigns: 5,
+    },
+
     posBusy: false,
   };
   let state = clone(initial);
@@ -271,10 +281,13 @@
     const seed = [
       { t: '08:30', c: 'biz',   x: 'Mai đối soát số dư đầu ngày · 33.760.000 ₫' },
       { t: '09:12', c: 'pos',   x: 'Lan bán HĐ #WX-00187 · 142.000 ₫ · HĐĐT-MTT phát hành' },
+      { t: '09:32', c: 'biz',   x: 'Cô Lan đổi voucher <strong>Omachi −25k</strong> tại tiệm · + 18k hoa hồng' },
       { t: '09:45', c: 'pos',   x: 'Huy bán HĐ #WX-00188 · 78.000 ₫' },
       { t: '10:08', c: 'ai',    x: 'Cảnh báo tồn: <strong>Wake-Up 247</strong> còn 8 thùng · hết trong ~1,2 ngày' },
+      { t: '10:20', c: 'biz',   x: 'Anh Tài đổi voucher <strong>MEATDeli −15k</strong> · + 12k hoa hồng cho tiệm' },
       { t: '10:25', c: 'ncc',   x: '<strong>NPP MCH HCM-07</strong> gửi HĐ #MCH-4412 · 12.400.000 ₫ → chờ chủ tiệm duyệt' },
       { t: '10:31', c: 'ai',    x: 'Khớp <strong>#MCH-4412</strong> với đơn đặt + phiếu giao · phát hiện 420.000 ₫ CK Tết chưa khai · đề xuất trả ròng 11.980.000 ₫' },
+      { t: '10:38', c: 'ai',    x: 'Chú An đã tích <strong>18 lần Chin-Su</strong> tháng này · sắp đạt voucher hạng VIP · gợi ý gửi nhắc' },
     ];
     // Newest first: unshift each in order so the last seed entry (10:31) ends up at index 0
     seed.forEach(e => allEvents.unshift({ time: e.t, chan: channelLabel[e.c], text: e.x }));
@@ -494,6 +507,23 @@
   }
 
   const aiAnswers = {
+    loyalty: {
+      userText: 'Brand nào trả hoa hồng nhiều nhất?',
+      thinking: 950,
+      html: `
+        <p>Tháng này tổng hoa hồng <strong>1.870.000 ₫</strong> trên 5 brand. Xếp theo CR3 (tỷ lệ đổi voucher):</p>
+        <ul class="bubble-ul">
+          <li><strong>Omachi 41%</strong> — đứng đầu cả thị trường GT · 510k hoa hồng tháng.</li>
+          <li><strong>MEATDeli 22%</strong> · 280k — đặc biệt mạnh với khách đã mua Chin-Su.</li>
+          <li><strong>Nam Ngư x10 16%</strong> · 480k · Chin-Su Tết 15,8% · 420k.</li>
+        </ul>
+        <p>Cô Minh Anh đang ở <strong>top 8% GT retailer</strong> (CR3 18% vs trung bình GT 11%). Tham chiếu Tết Vàng Đến Ví 2026: 254K hội viên mới, 2,4M voucher.</p>
+        <button type="button" class="bubble-buy-cta" data-cta="open-loyalty">Mở loyalty console →</button>
+      `,
+      onShow: () => {
+        logEvent('ai', `User hỏi: brand nào trả hoa hồng nhiều nhất? · AI xếp top 5 · Omachi đứng đầu CR3 41%`);
+      }
+    },
     debt: {
       userText: 'Khách nào nợ lâu nhất?',
       thinking: 800,
@@ -614,6 +644,11 @@
       btn.disabled = true;
       btn.textContent = '✓ Đang mở...';
       openModal('modalCash');
+    }
+    if (cta === 'open-loyalty'){
+      btn.disabled = true;
+      btn.textContent = '✓ Đang mở...';
+      openModal('modalLoyalty');
     }
   }
 
@@ -758,6 +793,41 @@
   });
   $('#aiCardBrief')?.addEventListener('click', () => openModal('modalWeekly'));
   $('#aiCardCredit')?.addEventListener('click', () => openModal('modalLoan'));
+  $('#posLoyaltyBanner')?.addEventListener('click', () => openModal('modalLoyalty'));
+  $('#ckLoyaltyCard')?.addEventListener('click', () => openModal('modalLoyalty'));
+
+  /* ---------- LOYALTY MODAL ACTIONS ---------- */
+  $('#lcCrossSell')?.addEventListener('click', () => {
+    if (state.loyalty.crossSellSent) return;
+    state.loyalty.crossSellSent = true;
+    const time = now();
+    flashPanel('biz');
+    logEvent('ai', `Gửi combo MEATDeli cho Chú An qua VietQR · cross-sell từ pattern Chin-Su × Nam Ngư`, time);
+    logEvent('biz', `MEATDeli x Chin-Su combo · voucher −15k · gửi SMS định danh thương hiệu`, time);
+    const btn = $('#lcCrossSell');
+    if (btn){
+      btn.disabled = true;
+      btn.textContent = '✓ Đã gửi combo MEATDeli cho Chú An';
+    }
+  });
+
+  $$('.lc-posm-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = btn.dataset.posm;
+      if (!key || state.loyalty.posmOrdered[key]) return;
+      state.loyalty.posmOrdered[key] = true;
+      const labels = {
+        'standee-nn':  'Standee Nam Ngư x10',
+        'sticker-cs':  'Bộ sticker giá Chin-Su Tết',
+        'banner-om':   'Banner Omachi Thần Tốc',
+      };
+      const time = now();
+      flashPanel('biz');
+      logEvent('biz', `Đặt POSM brand-funded · <strong>${labels[key]}</strong> · Masan tài trợ 100% · giao trong 1-2 ngày`, time);
+      btn.disabled = true;
+      btn.textContent = '✓ Đã đặt';
+    });
+  });
 
   /* ---------- MODAL ACTIONS ---------- */
   $('#cashConfirm')?.addEventListener('click', () => {
@@ -924,6 +994,16 @@
       rsBtn.disabled = false;
       rsBtn.textContent = 'Tạo PO & gửi NPP MCH HCM-07';
     }
+    // loyalty reset
+    const csBtn = $('#lcCrossSell');
+    if (csBtn){
+      csBtn.disabled = false;
+      csBtn.textContent = 'Gửi gợi ý combo MEATDeli cho Chú An →';
+    }
+    $$('.lc-posm-btn').forEach(b => {
+      b.disabled = false;
+      b.textContent = 'Đặt';
+    });
   });
 
   /* ---------- INIT ---------- */
