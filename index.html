@@ -4,26 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#0F1B33" />
-  <meta name="description" content="WinX Business — demo cockpit: ví doanh nghiệp, POS, và trợ lý AI cho tiệm tạp hoá và SME Việt Nam. Một màn hình, mọi tương tác." />
-  <meta property="og:title" content="WinX Business · cockpit demo" />
-  <meta property="og:description" content="Một merchant record. POS bán. Sổ nợ thu. Ví giữ tiền. AI cảnh báo. Cùng một màn hình." />
+  <meta name="description" content="WinX Business — tài khoản kinh doanh + hạn mức nhập hàng MCH cho tiệm tạp hoá Việt Nam. Anchor SCF + payment rail trên mạng phân phối Masan. Cơ chế Mintifi (Ấn Độ) đã chứng minh." />
+  <meta property="og:title" content="WinX Business · tài khoản kinh doanh + hạn mức nhập hàng cho tiệm tạp hoá Việt Nam" />
+  <meta property="og:description" content="Anchor SCF + payment rail trên mạng phân phối Masan. Cơ chế Mintifi (Ấn Độ), không phải Wise/Mercury." />
   <meta property="og:type" content="website" />
-  <title>WinX Business · cockpit · cho tiệm tạp hoá & SME Việt Nam</title>
+  <title>WinX Business · tài khoản kinh doanh + hạn mức nhập hàng MCH cho tiệm Việt Nam</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23C73E3A'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,sans-serif' font-weight='800' font-size='32' fill='white'>X</text></svg>" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="platform.css" />
+  <link rel="stylesheet" href="landing.css" />
 </head>
-<body class="cockpit-body">
+<body class="lp-body">
 
-<!-- ================== HEADER ================== -->
-<header class="ck-nav">
-  <div class="ck-nav-inner">
-    <button type="button" class="ck-brand" id="ckBrand" aria-label="WinX Business · giới thiệu nền tảng">
+<header class="lp-nav">
+  <div class="lp-nav-inner">
+    <a class="lp-brand" href="index.html">
       <span class="brand-mark" aria-hidden="true">
         <svg viewBox="0 0 36 36" width="28" height="28">
           <rect width="36" height="36" rx="9" fill="currentColor"/>
@@ -33,916 +31,364 @@
       <span class="brand-text">
         <span class="brand-name">WinX</span><span class="brand-suffix">Business</span>
       </span>
-    </button>
-
-    <button type="button" class="ck-shop" id="ckShop" aria-label="Hồ sơ tiệm Tạp hoá Minh Anh">
-      <span class="ck-shop-name">Tạp hóa Minh Anh</span>
-      <span class="ck-shop-meta">MST 8101 234 567 · 123 Hồ Học Lãm, Q. Bình Tân, HCMC</span>
-    </button>
-
-    <div class="ck-nav-cta">
-      <span class="ck-shop-clock" id="ckClock">10:42</span>
-      <button type="button" class="ck-onboarding" id="ckOnboarding" title="Cô Minh Anh đã mở ví trong 3 phút — bấm xem lại">
-        ✓ Mở ví trong 3 phút
-      </button>
-      <button type="button" class="ck-reset" id="ckReset" title="Đặt lại demo">↺ Reset</button>
-      <span class="pill pill-soft">Demo · 1 màn hình</span>
-    </div>
-  </div>
-
-  <div class="ck-tour" id="ckTour">
-    <span class="ck-tour-dot"></span>
-    <span class="ck-tour-text">Mọi ô đều bấm được. Thử <strong>Thu QR</strong> (POS) → xem ví, tồn kho, AI cùng cập nhật. Hoặc <strong>Phê duyệt</strong> chi NCC. Hoặc hỏi <strong>AI</strong>.</span>
-    <button type="button" class="ck-tour-x" id="ckTourClose" aria-label="Ẩn hướng dẫn">✕</button>
+    </a>
+    <nav class="lp-nav-links">
+      <a href="#thesis">Thesis</a>
+      <a href="#persona">Cô Minh Anh</a>
+      <a href="#tracks">Sequencing</a>
+      <a href="#comps">Tham chiếu</a>
+      <a href="#why">Vì sao nhóm Masan thắng</a>
+    </nav>
+    <a class="lp-cta-primary" href="demo.html">Mở cockpit demo →</a>
   </div>
 </header>
 
-<!-- ================== MAIN COCKPIT GRID ================== -->
-<main class="cockpit" id="cockpit">
+<!-- ================== HERO ================== -->
+<section class="lp-hero">
+  <div class="lp-hero-inner">
+    <span class="lp-eyebrow">Tài khoản kinh doanh + hạn mức nhập hàng MCH · cho tiệm Việt Nam</span>
+    <h1 class="lp-h1">
+      Tiệm có <span class="ink-biz">tài khoản kinh doanh</span> riêng.<br>
+      Hạn mức nhập hàng từ <span class="ink-pos">doanh số POS thật</span>.
+    </h1>
+    <p class="lp-lede">
+      WinX Business là lớp tài chính vận hành cho 1,4 triệu tạp hóa và 5,2 triệu hộ kinh doanh Việt Nam.
+      Không phải neobank tiêu dùng. Không phải Wise / Mercury / Aspire — cô Minh Anh không có giao dịch xuyên biên giới, không có tiền nhàn rỗi để hưởng NIM, không có team tài chính.
+      Cơ chế là <strong>anchor SCF Mintifi (Ấn Độ)</strong> trên mạng phân phối Masan, do TCB ghi sổ trên balance sheet ngân hàng. WinX origination — không cho vay trên sổ riêng.
+    </p>
 
-  <!-- ================== POS COLUMN ================== -->
-  <section class="ck-col ck-col-pos" data-product="pos">
-    <header class="ck-col-h">
-      <span class="ck-col-mark ck-mark-pos">▣</span>
-      <div class="ck-col-meta">
-        <strong>WinX POS · tại quầy</strong>
-        <span>Lan thu ca sáng · POS-00872</span>
+    <div class="lp-kpis">
+      <div class="lp-kpi">
+        <strong>3 phút</strong>
+        <span>Mở tài khoản kinh doanh + 3 mã QR · NV MCH route-truck đăng ký giúp tại quầy</span>
       </div>
-    </header>
-
-    <div class="ck-pos-screen">
-      <div class="pos-topbar">
-        <div class="pos-store">
-          <span class="pos-store-name">HĐ #WX-<span id="posInvoiceId">00192</span></span>
-          <span class="pos-store-meta">Khách: Chú An · hạng Bạc</span>
-        </div>
-        <span class="pos-pill pos-pill-on">● Đang bán</span>
+      <div class="lp-kpi">
+        <strong>21 ngày · 1,2%/kỳ</strong>
+        <span>Hạn mức nhập hàng MCH revolving · auto-trừ 8% mỗi đơn POS · invite-only theo dữ liệu</span>
       </div>
-
-      <div class="pos-cart" id="posCart">
-        <div class="pos-line" data-sku="omachi">
-          <span class="prod-chip prod-omachi">Om</span>
-          <span class="pos-line-name">Mì Omachi sườn hầm</span>
-          <span class="pos-line-qty">×2</span>
-          <span class="pos-line-amt">22.000</span>
-        </div>
-        <div class="pos-line" data-sku="chinsu">
-          <span class="prod-chip prod-chinsu">Cs</span>
-          <span class="pos-line-name">Nước mắm Chinsu cá cơm</span>
-          <span class="pos-line-qty">×1</span>
-          <span class="pos-line-amt">38.000</span>
-        </div>
-        <div class="pos-line" data-sku="wakeup">
-          <span class="prod-chip prod-wakeup">W</span>
-          <span class="pos-line-name">Wake-Up 247</span>
-          <span class="pos-line-qty">×3</span>
-          <span class="pos-line-amt">36.000</span>
-        </div>
-        <div class="pos-line" data-sku="vinacafe">
-          <span class="prod-chip prod-vinacafe">Vc</span>
-          <span class="pos-line-name">Vinacafé 3in1</span>
-          <span class="pos-line-qty">×1</span>
-          <span class="pos-line-amt">90.000</span>
-        </div>
-        <div class="pos-line pos-line-promo">
-          <span class="prod-chip prod-promo">KM</span>
-          <span class="pos-line-name">KM MCH "Tết Sum Vầy"</span>
-          <span class="pos-line-qty"></span>
-          <span class="pos-line-amt">−5.000</span>
-        </div>
-        <div class="pos-total">
-          <span>Tổng thanh toán</span>
-          <strong><span id="posTotal">181.000</span> ₫</strong>
-        </div>
+      <div class="lp-kpi">
+        <strong>2 mặt sổ</strong>
+        <span>MCH sell-in × WinX POS sell-out — chỉ WinX có cả hai. Funding Societies bỏ VN 2024, Validus dừng 3/2025 vì chỉ có một mặt.</span>
       </div>
-
-      <div class="pos-compliance" role="group" aria-label="Tích hợp tuân thủ thuế & hoá đơn">
-        <button type="button" class="pc-toggle is-on" id="pcToggleEinv" aria-pressed="true">
-          <div class="pc-toggle-row">
-            <span class="pc-switch" aria-hidden="true"></span>
-            <div class="pc-title">
-              <strong>HĐĐT-MTT</strong>
-              <span class="pc-cite">NĐ 70/2025</span>
-            </div>
-          </div>
-          <span class="pc-sub">Auto phát hành về GDT mỗi giao dịch</span>
-          <span class="pc-status">BẬT · auto</span>
-        </button>
-        <button type="button" class="pc-toggle is-on" id="pcToggleTax" aria-pressed="true">
-          <div class="pc-toggle-row">
-            <span class="pc-switch" aria-hidden="true"></span>
-            <div class="pc-title">
-              <strong>Tự kê khai thuế</strong>
-              <span class="pc-cite">NQ 198/2025 · TT 40/2021</span>
-            </div>
-          </div>
-          <span class="pc-sub">VAT 1% + TNCN 0,5% từ HĐĐT-MTT</span>
-          <span class="pc-status">BẬT · auto</span>
-        </button>
-      </div>
-      <div class="pc-actions">
-        <button type="button" class="pc-mini" id="posEinvView">Xem mẫu HĐĐT →</button>
-        <button type="button" class="pc-mini" id="pcOpenTax">Xem khai thuế tháng →</button>
-      </div>
-      <div class="pc-warning" id="pcWarning" hidden></div>
-
-      <button type="button" class="pos-loyalty" id="posLoyaltyBanner">
-        <span class="pl-spark">🎁</span>
-        <span class="pl-text"><strong>Chú An</strong> có <strong>3 voucher Masan</strong> sẵn · Nam Ngư · Chin-Su · MEATDeli</span>
-        <span class="pl-cta">Áp dụng →</span>
-      </button>
-
-      <div class="pos-qr-stage" id="posQrStage">
-        <div class="pos-qr-empty" id="posQrEmpty">
-          <button type="button" class="btn-collect ck-cta-primary" id="posCollect">
-            Thu QR · <span id="posCollectAmt">181.000</span> ₫
-          </button>
-          <button type="button" class="btn-ghino" id="posGhiNo">
-            Ghi sổ Chú An · 181.000 ₫
-          </button>
-          <span class="pos-qr-hint">Bấm Thu QR để xem cross-product · hoặc Ghi sổ để vào sổ nợ</span>
-        </div>
-        <div class="pos-qr-card" id="posQrCard" aria-hidden="true">
-          <div class="qr-art">
-            <div class="qr-corner qr-corner-tl"></div>
-            <div class="qr-corner qr-corner-tr"></div>
-            <div class="qr-corner qr-corner-bl"></div>
-            <div class="qr-corner qr-corner-br"></div>
-            <div class="qr-grid"></div>
-            <div class="qr-logo">WinX</div>
-            <div class="qr-scan-bar"></div>
-          </div>
-          <div class="qr-meta">
-            <span class="qr-amt" id="qrAmt">181.000 ₫</span>
-            <span class="qr-va">VA Quầy · 9821 0001 9872</span>
-            <span class="qr-via">qua VietQR · NAPAS247</span>
-          </div>
-        </div>
-        <div class="pos-qr-done" id="posQrDone" aria-hidden="true">
-          <span class="qr-tick">✓</span>
-          <div>
-            <span class="qr-done-title">Đã thu <strong id="qrDoneAmt">181.000 ₫</strong></span>
-            <span class="qr-done-sub" id="posQrDoneSub">HĐĐT-MTT #WX-00192 · NĐ70 · ↗ ví</span>
-          </div>
-        </div>
+      <div class="lp-kpi">
+        <strong>USD ~110tr</strong>
+        <span>Captive uplift FY34E đến nhóm Masan (WCM · MCH · MML · Phuc Long · TCB) · case load-bearing cho IC</span>
       </div>
     </div>
 
-    <button type="button" class="ck-card ck-card-debt" id="ckDebtCard" aria-label="Mở sổ nợ khách hàng">
-      <header class="ck-card-h">
-        <strong>Sổ nợ khách hàng</strong>
-        <span class="ck-card-h-sum"><span id="debtTotal">1.230.000</span> ₫ · <span id="debtCount">4</span> người</span>
-      </header>
-      <ul class="ck-debt-list" id="ckDebtList">
-        <li data-cust="anh"><span class="dt-avatar">An</span><div class="dt-meta"><strong>Chú An</strong><span>18 ngày · 0907·xxx·128</span></div><strong class="dt-amt">350k</strong></li>
-        <li data-cust="huong"><span class="dt-avatar dt-avatar-2">Hg</span><div class="dt-meta"><strong>Chị Hương</strong><span>9 ngày · 0908·xxx·215</span></div><strong class="dt-amt">220k</strong></li>
-        <li data-cust="tai"><span class="dt-avatar dt-avatar-3">Tà</span><div class="dt-meta"><strong>Anh Tài</strong><span>5 ngày · 0905·xxx·702</span></div><strong class="dt-amt">480k</strong></li>
-        <li data-cust="lan"><span class="dt-avatar dt-avatar-4">CL</span><div class="dt-meta"><strong>Cô Lan</strong><span>2 ngày · 0903·xxx·844</span></div><strong class="dt-amt">180k</strong></li>
-      </ul>
-      <span class="ck-card-cta">Bấm để gửi nhắc VietQR →</span>
-    </button>
-
-    <button type="button" class="ck-card ck-card-inv" id="ckInvCard" aria-label="Mở đề xuất đặt lại hàng">
-      <header class="ck-card-h">
-        <strong>Tồn sắp hết</strong>
-        <span class="ck-card-h-sum"><span id="lowCount">2</span> SKU · vòng &lt; 2 ngày</span>
-      </header>
-      <ul class="ck-inv-list" id="ckInvList">
-        <li data-sku="omachi"><span class="prod-chip prod-omachi">Om</span><span class="inv-name">Omachi sườn hầm</span><strong class="inv-qty">23</strong></li>
-        <li data-sku="chinsu"><span class="prod-chip prod-chinsu">Cs</span><span class="inv-name">Chinsu cá cơm</span><strong class="inv-qty">15</strong></li>
-        <li data-sku="wakeup" class="is-low"><span class="prod-chip prod-wakeup">W</span><span class="inv-name">Wake-Up 247</span><strong class="inv-qty">8</strong></li>
-        <li data-sku="vinacafe"><span class="prod-chip prod-vinacafe">Vc</span><span class="inv-name">Vinacafé 3in1</span><strong class="inv-qty">41</strong></li>
-        <li data-sku="skuX" class="is-slow"><span class="prod-chip prod-x">X</span><span class="inv-name">SKU X · 38 ngày</span><strong class="inv-qty">12</strong></li>
-      </ul>
-      <span class="ck-card-cta">Bấm để đặt lại NPP MCH →</span>
-    </button>
-  </section>
-
-  <!-- ================== BUSINESS COLUMN (center / protagonist) ================== -->
-  <section class="ck-col ck-col-biz" data-product="biz">
-    <header class="ck-col-h ck-col-h-primary">
-      <span class="ck-col-mark ck-mark-biz">$</span>
-      <div class="ck-col-meta">
-        <strong>WinX Business · ví doanh nghiệp</strong>
-        <span>Cô Minh Anh · chủ tiệm</span>
-      </div>
-    </header>
-
-    <button type="button" class="ck-biz-balance" id="bizVaView" aria-label="Mở chi tiết ví và 3 VA">
-      <div class="biz-bal-head">
-        <span class="biz-bal-label">Số dư ví doanh nghiệp</span>
-        <span class="biz-bal-trust">Giữ tại NH đối tác · TK đảm bảo</span>
-      </div>
-      <div class="biz-bal-amount">
-        <span id="bizBalance" data-fmt="vnd">42.180.000</span> <small>₫</small>
-      </div>
-      <div class="biz-bal-meta">
-        <span class="meta-tag meta-up" id="bizDelta">▲ 8,42tr hôm nay</span>
-        <span class="meta-tag">3 mã QR · 3 kênh</span>
-        <span class="meta-tag-link">Xem VA &amp; ngân hàng →</span>
-      </div>
-    </button>
-
-    <div class="ck-biz-today">
-      <span class="ck-mini-cap">Hôm nay · từ WinX POS</span>
-      <div class="biz-today-grid">
-        <button type="button" class="bt-tile" data-action="qr-detail">
-          <span class="bt-cap">QR thu hôm nay</span>
-          <strong><span id="todayQr" data-fmt="vnd">5.130.000</span> ₫</strong>
-          <em>3 kênh →</em>
-        </button>
-        <button type="button" class="bt-tile" data-action="cash-close">
-          <span class="bt-cap">Tiền mặt · cần đóng quỹ</span>
-          <strong><span id="todayCash" data-fmt="vnd">2.740.000</span> ₫</strong>
-          <em class="bt-warn">chênh 550k →</em>
-        </button>
-        <button type="button" class="bt-tile" data-action="payables">
-          <span class="bt-cap">Trả ngày mai</span>
-          <strong><span id="duePay" data-fmt="vnd">14.600.000</span> ₫</strong>
-          <em>3 NCC →</em>
-        </button>
-        <button type="button" class="bt-tile" data-action="cashflow">
-          <span class="bt-cap">Runway tiền mặt</span>
-          <strong><span id="runwayDays">6,5</span> ngày</strong>
-          <em>Kịch bản →</em>
-        </button>
-      </div>
+    <div class="lp-cta-row">
+      <a class="lp-cta-primary" href="demo.html">Mở cockpit demo · 3 cột live →</a>
+      <a class="lp-cta-ghost" href="#thesis">Đọc thesis trước</a>
     </div>
-
-    <div class="ck-biz-actions">
-      <span class="ck-mini-cap">Hành động · 6 năng lực ví doanh nghiệp</span>
-      <div class="biz-qa-grid">
-        <button type="button" class="biz-qa" data-action="trancc"><span class="qa-ic">⥆</span><span>Trả NCC</span></button>
-        <button type="button" class="biz-qa" data-action="payroll"><span class="qa-ic">👥</span><span>Lương</span></button>
-        <button type="button" class="biz-qa" data-action="tax"><span class="qa-ic">📑</span><span>Thuế</span></button>
-        <button type="button" class="biz-qa" data-action="staff"><span class="qa-ic">＋</span><span>Mời TV</span></button>
-        <button type="button" class="biz-qa" data-action="einvoice"><span class="qa-ic">▤</span><span>HĐ điện tử</span></button>
-        <button type="button" class="biz-qa" data-action="weekly"><span class="qa-ic">📊</span><span>Báo cáo</span></button>
-      </div>
-    </div>
-
-    <div class="ck-biz-approval" id="bizApproval">
-      <header class="bza-head">
-        <span class="bza-tag">Cần chủ tiệm duyệt</span>
-        <span class="bza-time">10:31 · 11 phút trước</span>
-      </header>
-      <div class="bza-main">
-        <div class="bza-cp">
-          <strong>NPP MCH HCM-07</strong>
-          <span>Hóa đơn #MCH-4412 · phiếu giao GR-W19-024</span>
-        </div>
-        <div class="bza-money">
-          <strong class="bza-money-net"><span id="bzaAmtNet">11.980.000</span> ₫</strong>
-          <span class="bza-money-gross">gốc 12.400.000 ₫</span>
-        </div>
-      </div>
-      <div class="bza-ai">
-        <span class="bza-ai-mark">✦ AI</span>
-        <span>Khớp đơn đặt + phiếu giao. Phát hiện <strong>chiết khấu Tết 420.000 ₫</strong> chưa khai → đề xuất trả ròng <strong>11,98tr</strong>.</span>
-      </div>
-      <button type="button" class="btn-approve ck-cta-primary" id="bzaApprove">Phê duyệt &amp; trả 11.980.000 ₫</button>
-      <span class="bza-gate">Quy tắc: chỉ chủ tiệm duyệt chi &gt; 1 triệu. Lan chỉ thu, không chi.</span>
-      <div class="bza-success" id="bzaSuccess" aria-hidden="true">
-        <span class="qr-tick">✓</span>
-        <span>Đã trả <strong>11.980.000 ₫</strong> · audit <span id="bzaAuditId">#AL-1042-09</span></span>
-      </div>
-    </div>
-
-    <button type="button" class="ck-card ck-card-loyalty" id="ckLoyaltyCard" aria-label="Mở loyalty &amp; voucher console">
-      <header class="ck-card-h">
-        <strong>Hoa hồng loyalty · Masan brands</strong>
-        <span class="ck-card-h-sum">tháng này · ▲ 12% MoM</span>
-      </header>
-      <div class="lc-hero">
-        <strong class="lc-amt"><span id="loyaltyMonth">1.870.000</span> ₫</strong>
-        <span class="lc-hero-sub">trên 5 chiến dịch brand đang chạy · cập nhật khi khách đổi voucher</span>
-      </div>
-      <div class="lc-brand-chips">
-        <span class="brand-chip brand-chip-omachi">Om · Omachi</span>
-        <span class="brand-chip brand-chip-namngu">Nn · Nam Ngư x10</span>
-        <span class="brand-chip brand-chip-chinsu">Cs · Chin-Su Tết</span>
-        <span class="brand-chip brand-chip-meatdeli">Md · MEATDeli</span>
-        <span class="brand-chip brand-chip-heonhi">Hn · Heo Nhỉ</span>
-      </div>
-      <div class="lc-today">
-        <span><strong id="loyaltyScans">12</strong> lượt scan hôm nay</span>
-        <span><strong id="loyaltyRedeems">4</strong> voucher đổi tại tiệm</span>
-        <span class="lc-today-money">+ <strong id="loyaltyToday">53.000</strong> ₫ hôm nay</span>
-      </div>
-      <span class="ck-card-cta">Bấm để xem bảng chiến dịch + đặt POSM →</span>
-    </button>
-
-    <button type="button" class="ck-card ck-card-staff ck-card-compact" id="ckStaffCard" aria-label="Mở ma trận phân quyền &amp; audit log">
-      <header class="ck-card-h">
-        <strong>Nhân viên &amp; phân quyền</strong>
-        <span class="ck-card-h-sum">4 người · Lan thu / Cô MA chi</span>
-      </header>
-      <div class="ck-staff-strip" id="ckStaffList">
-        <span class="st-row" data-staff="lan"><span class="st-avatar st-avatar-lan">L</span></span>
-        <span class="st-row" data-staff="huy"><span class="st-avatar st-avatar-huy">H</span></span>
-        <span class="st-row" data-staff="mai"><span class="st-avatar st-avatar-mai">M</span></span>
-        <span class="st-row st-row-owner" data-staff="owner"><span class="st-avatar st-avatar-owner">MA</span></span>
-        <span class="ck-staff-strip-cta">Xem audit log →</span>
-      </div>
-    </button>
-  </section>
-
-  <!-- ================== AI COLUMN ================== -->
-  <section class="ck-col ck-col-ai" data-product="ai">
-    <header class="ck-col-h">
-      <span class="ck-col-mark ck-mark-ai">✦</span>
-      <div class="ck-col-meta">
-        <strong>WinX AI · trợ lý tiệm</strong>
-        <span>Đọc 90 ngày POS · ví · NPP MCH</span>
-      </div>
-    </header>
-
-    <button type="button" class="aio-card aio-card-alert" id="aiCardAnomaly" data-action="anomaly">
-      <header class="aio-head"><span class="aio-mark">⚠</span><strong>Bất thường ca trực</strong><span class="aio-time">17:42</span></header>
-      <p>Doanh thu ca Lan <strong>17–18h</strong> thấp hơn pattern 90 ngày <strong>550.000 ₫</strong>. Số hoá đơn 12 vs trung bình 18.</p>
-      <span class="aio-cta">Xem chi tiết &amp; đóng quỹ →</span>
-    </button>
-
-    <button type="button" class="aio-card aio-card-brief" id="aiCardBrief" data-action="weekly">
-      <header class="aio-head"><span class="aio-mark">📊</span><strong>Báo cáo tuần 19</strong><span class="aio-time">03–09/05</span></header>
-      <p>Doanh thu <strong>58,3tr ▲12,4%</strong>. Biên 13,9% ▼1,1%. Omachi sắp hết trong 2,5 ngày.</p>
-      <span class="aio-cta">Mở báo cáo tuần →</span>
-    </button>
-
-    <button type="button" class="aio-card aio-card-credit" id="aiCardCredit" data-action="loan">
-      <header class="aio-head"><span class="aio-mark">★</span><strong>Hạn mức vay đã duyệt sẵn</strong><span class="aio-time">cập nhật hôm nay</span></header>
-      <p><strong>100 triệu ₫</strong> · 9,5%/năm · 8,7tr/tháng. NH đối tác duyệt từ doanh số 90 ngày POS.</p>
-      <span class="aio-cta">Xem điều khoản &amp; rút →</span>
-    </button>
-
-    <div class="ai-chat ck-ai-chat">
-      <header class="aic-head">
-        <span class="aic-dot"><span class="ai-dot"></span></span>
-        <div class="aic-meta">
-          <span class="aic-name">Trợ lý WinX</span>
-          <span class="aic-status">đọc POS · ví · NPP real-time</span>
-        </div>
-      </header>
-      <div class="aic-body" id="aicBody">
-        <div class="bubble bubble-ai">
-          <p>Chào cô Minh Anh. Hôm nay tiệm đang chạy ổn. Cô hỏi con bất cứ gì về tiền, hàng, hoặc khách hàng.</p>
-        </div>
-      </div>
-      <div class="aic-suggest" id="aicSuggest">
-        <button type="button" class="suggest-pill" data-q="loyalty">Brand nào trả hoa hồng nhiều nhất?</button>
-        <button type="button" class="suggest-pill" data-q="debt">Khách nào nợ lâu nhất?</button>
-        <button type="button" class="suggest-pill" data-q="skux">SKU X tồn 38 ngày — làm gì?</button>
-        <button type="button" class="suggest-pill" data-q="nhap30">Tuần này nhập 30tr được không?</button>
-        <button type="button" class="suggest-pill" data-q="anomaly">Có gì bất thường ca này?</button>
-      </div>
-      <form class="aic-input" id="aicForm" autocomplete="off">
-        <input type="text" id="aicInputText" placeholder="Hỏi trợ lý WinX..." aria-label="Hỏi trợ lý WinX" />
-        <button type="submit" class="aic-send">Gửi</button>
-      </form>
-    </div>
-  </section>
-
-</main>
-
-<!-- ================== EVENT TICKER (single-line) ================== -->
-<section class="ck-ticker" id="ckTicker" aria-live="polite">
-  <span class="ck-ticker-cap">⟳ Sự kiện trực tiếp · cùng merchant record</span>
-  <ul class="ck-ticker-list" id="ckTickerList"></ul>
-  <button type="button" class="ck-ticker-expand" id="ckTickerExpand">Mở rộng →</button>
+  </div>
 </section>
 
-<!-- ================== LICENSE RIBBON FOOTER ================== -->
-<footer class="ck-foot">
-  <div class="ck-foot-inner">
-    <div class="ck-foot-badges">
+<!-- ================== THESIS ================== -->
+<section class="lp-sec" id="thesis">
+  <div class="lp-sec-inner">
+    <span class="lp-sec-tag">Thesis</span>
+    <h2 class="lp-h2">Cơ chế Mintifi (Ấn Độ), không phải Udaan</h2>
+    <p class="lp-p">
+      Mintifi đạt 300+ anchor brand, USD 2,5 tỷ giải ngân FY25, có lãi từ FY23 — vì là <strong>settlement-rail, không phải order-rail</strong>.
+      Tiệm tạp hóa không cần đặt mọi SKU qua WinX. Anchor (MCH) cấp danh sách NPP đủ điều kiện + invoice feed. WinX thanh toán hộ NPP cho anchor (T+0), thu lại từ NPP/tiệm bằng auto-trừ doanh số (T+21).
+      Stop-supply là cơ chế thu hồi chính — không cần đòi nợ.
+    </p>
+    <p class="lp-p">
+      Udaan, Telio, BukuKas, Lummo đã chứng minh: <strong>order-rail (đặt mọi thứ qua một app) thua lỗ</strong> vì biên FMCG (3-7% gross) không gánh được chi phí kho + last-mile + tech.
+      Telio chết tháng 12/2024 sau khi đốt USD 52m. Validus VN dừng tháng 3/2025 vì khoảng trống pháp lý SBV.
+      WinX không lặp lại — ngồi trên hạ tầng phân phối Masan đã có sẵn, chỉ thêm lớp tài chính.
+    </p>
+
+    <div class="lp-table-wrap">
+      <table class="lp-table">
+        <thead><tr><th>Mô hình</th><th>WinX có?</th><th>Mô hình tham chiếu</th><th>Tình trạng VN</th></tr></thead>
+        <tbody>
+          <tr class="lp-row-good">
+            <td><strong>Anchor SCF</strong> (anchor → NPP receivable, channeled bank)</td>
+            <td>Có · MCH là anchor, TCB ghi sổ</td>
+            <td>Mintifi (Ấn Độ, 300+ anchor, US$2,5tỷ FY25, có lãi); Batumbu (Indonesia, IDR 45,1nghìn tỷ, EBITDA &gt;50%)</td>
+            <td>Lane mở · Validus VN dừng 3/2025 vì lý do pháp lý không phải PMF</td>
+          </tr>
+          <tr class="lp-row-good">
+            <td><strong>Retailer restock credit</strong> (POS data → MCA, auto-trừ doanh số)</td>
+            <td>Có · POS 90 ngày × MCH sell-in</td>
+            <td>Square Capital (USD 22 tỷ tích lũy, &lt;3% loss); Shopify Capital (USD 5,5 tỷ); BharatPe (₹1.154 cr AUM)</td>
+            <td>Lane mở · KiotViet+VietCredit chưa scale; MISA+VPBank đang dẫn (VND 16k tỷ)</td>
+          </tr>
+          <tr class="lp-row-bad">
+            <td><strong>B2B order rail đa thương hiệu</strong> (Udaan, Telio)</td>
+            <td>KHÔNG · Telio chết tháng 12/2024</td>
+            <td>Udaan giảm 70% valuation, pivot private-label</td>
+            <td>Lane đóng · biên FMCG quá mỏng</td>
+          </tr>
+          <tr class="lp-row-bad">
+            <td><strong>Free-ledger SaaS</strong> (Khatabook, BukuKas)</td>
+            <td>KHÔNG · trap không monetize</td>
+            <td>Khatabook revenue collapse 75%, $100M+ raised → INR 1,39 cr revenue</td>
+            <td>Lane đóng · HKD VN không trả phí subscription</td>
+          </tr>
+          <tr class="lp-row-bad">
+            <td><strong>Standalone digital bank</strong> (Tonik PH)</td>
+            <td>KHÔNG · USD 188M, 5 năm break-even</td>
+            <td>Tonik PHP đạt lãi Q1 2026 nhưng monoline credit risk</td>
+            <td>SBV chưa cấp giấy phép digital bank cho phép loại này</td>
+          </tr>
+          <tr class="lp-row-bad">
+            <td><strong>Consumer wallet</strong> (Wise, Mercury, Aspire — đã loại)</td>
+            <td>KHÔNG · GT không có cross-border / idle cash / finance team</td>
+            <td>MoMo · 6 năm tới lãi đầu tiên trên USD 482M revenue</td>
+            <td>Saturated · MoMo / ZaloPay / ShopeePay đã chiếm</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================== PERSONA ================== -->
+<section class="lp-sec lp-sec-tint" id="persona">
+  <div class="lp-sec-inner lp-persona">
+    <div class="lp-persona-body">
+      <span class="lp-sec-tag">Persona</span>
+      <h2 class="lp-h2">Cô Minh Anh · Bình Tân, HCMC</h2>
+      <ul class="lp-persona-list">
+        <li><strong>30 m²</strong> tạp hóa, mở 6h sáng, doanh thu <strong>8–12 triệu/ngày</strong>, chồng + cháu phụ.</li>
+        <li>~50 nhãn hàng, ~180 SKU; top SKU vòng 7–14 ngày.</li>
+        <li>~30% doanh thu qua QR (VietQR/MoMo/ZaloPay), còn lại tiền mặt. Sổ nợ giấy cho 4 khách quen.</li>
+        <li>NV MCH route-truck (anh Hùng) ghé 2 lần/tuần — đặt hàng trên handheld DMS, giao bằng xe tải, thu tiền mặt khi giao, gối nợ 7–14 ngày cho tiệm tin cậy.</li>
+        <li>Doanh thu năm ước <strong>~3 tỷ</strong> — trên ngưỡng <strong>Nghị quyết 198/2025</strong> (bỏ thuế khoán từ 1/1/2026, kê khai theo Thông tư 88/2021 với sổ S1-S7).</li>
+        <li>Đã cài KiotViet hoặc MISA để in hóa đơn cho Nghị định 70/2025 — dùng cho phát hành HĐĐT-MTT, không dùng cho quản lý nhập hàng hay trả NCC.</li>
+        <li>Cô không tin "app vay nhanh" — em họ từng dính tín dụng đen (8–12%/tháng) năm 2022. Tin anh Hùng (NV MCH 5 năm) hơn tin một app.</li>
+      </ul>
+    </div>
+    <aside class="lp-persona-aside">
+      <div class="lp-aside-card">
+        <span class="lp-aside-cap">Vì sao cô đăng ký WinX</span>
+        <p>Anh Hùng (MCH route-truck thứ Tư) ngồi cùng cô tại quầy 12/04/2026, eKYC trên điện thoại cô, mở tài khoản kinh doanh + 3 VA trong 3 phút.</p>
+        <p>Không phải app store. Không phải quảng cáo. Không phải SMS từ số lạ.</p>
+        <span class="lp-aside-cap">Đây là CAC ~USD 15–25 vs USD 30–80 cho fintech độc lập (Lili, Novo, Open Money đã chứng minh CAC-LTV inversion).</span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ================== TRACKS / SEQUENCING ================== -->
+<section class="lp-sec" id="tracks">
+  <div class="lp-sec-inner">
+    <span class="lp-sec-tag">Sequencing</span>
+    <h2 class="lp-h2">Ba lộ trình · không lẫn lộn</h2>
+    <p class="lp-p">
+      Câu hỏi "có nên onboard Unilever / Nestlé / Vinamilk như anchor trực tiếp?" có câu trả lời rõ ràng: <strong>không, không trong 36 tháng tới</strong>. Mọi rail đa anchor đã scale (Linklogis 3.500+ anchor, Mintifi 300+) đều thuộc về chủ thể <strong>không cạnh tranh thương hiệu</strong>: Tencent không bán mì gói, Mintifi là NBFC không sở hữu nhãn nào. Mọi rail có sở hữu cạnh tranh thương hiệu đã mất anchor: Alibaba Lingshoutong (đóng 3/2024 vì Hema/Taocaicai), Udaan (giảm 70% valuation), Bukalapak Mitra (rút khỏi physical 3/2025).
+    </p>
+    <p class="lp-p">
+      Cách Masan có quyền nhìn 8 NCC khác nhau của cô Minh Anh <strong>không cần Unilever/Vinamilk đồng ý</strong>: ba lộ trình song song, không trộn lẫn. Cô đồng ý là đủ. Tiệm đồng ý là đủ. Sạp Bình Tây cảm thấy có lợi cũng là đủ.
+    </p>
+
+    <div class="lp-tracks">
+      <article class="lp-track lp-track-now">
+        <header class="lp-track-h">
+          <span class="lp-track-num">01</span>
+          <strong>Phase 0 · FY26–27</strong>
+          <span class="lp-track-status">Sẵn sàng pilot</span>
+        </header>
+        <h3>MCH anchor SCF</h3>
+        <p>Tài trợ phải thu MCH → NPP. ~150 NPP. TCB cấp hạn mức tối đa 4× vốn cổ phần, hàng MCH chấp nhận 95% LTV. WinX origination + servicing fee. TCB ghi sổ.</p>
+        <ul>
+          <li>Mục tiêu FY27 AUM <strong>VND 3.000 tỷ</strong> (Mintifi năm 1 ~USD 200M)</li>
+          <li>Origination fee 0,8–1,2% + servicing 35–40 bps</li>
+          <li>Chương trình "Sponsoring of Masan Distributors" của TCB đã chạy — WinX bám trên rail này</li>
+          <li>Phase 0 kill criteria: 90-DPD &lt; 1,5%, NPS NPP &gt; 40, TCB SME Exco ký headroom</li>
+        </ul>
+      </article>
+
+      <article class="lp-track lp-track-next">
+        <header class="lp-track-h">
+          <span class="lp-track-num">02</span>
+          <strong>Phase 1 · FY27–28</strong>
+          <span class="lp-track-status">Build song song với Phase 0</span>
+        </header>
+        <h3>NPP đa-thương-hiệu + WinX QR-out + POS sell-out</h3>
+        <p>Đây là phần "nhìn nhiều hơn MISA" — không cần Unilever đồng ý. Ba nguồn dữ liệu khớp chéo:</p>
+        <ul>
+          <li><strong>WinX QR-out / virtual account</strong> · cô trả Vinamilk NPP / Suntory / Pepsi qua WinX instrument → bắt được counterparty + số tiền không cần thương hiệu duyệt</li>
+          <li><strong>POS sell-out</strong> · mỗi giao dịch tại quầy đều quét → 40–60% multi-brand SKU coverage</li>
+          <li><strong>NPP đa-thương-hiệu</strong> · onboard 50–100 sạp/NPP Bình Tây / Phạm Văn Hai / Hóc Môn — họ mang 20–50 nhãn, DMS-lite của WinX cho họ T+1 settlement đổi lấy dữ liệu</li>
+        </ul>
+        <p class="lp-track-p2">Theo Circular 12/2024/TT-NHNN, khoản SCF ≤ VND 100M không cần kế hoạch sử dụng vốn bằng văn bản. Hợp đồng ba bên (tiệm + NPP đa-thương-hiệu + WinX) đủ. Cơ chế Mintifi nguyên xi.</p>
+      </article>
+
+      <article class="lp-track lp-track-later">
+        <header class="lp-track-h">
+          <span class="lp-track-num">03</span>
+          <strong>Phase 2 · FY29+</strong>
+          <span class="lp-track-status">Tùy chọn dài hạn · điều kiện</span>
+        </header>
+        <h3>Trực tiếp Unilever / Nestlé / Vinamilk như anchor</h3>
+        <p>Chỉ khả thi nếu nhóm Masan chấp nhận ba điều kiện đồng thời:</p>
+        <ul>
+          <li><strong>Spin-out cấu trúc</strong> · WinX Business thành NewCo cấp Group, Masan ≤ 50%, board độc lập, CEO không thuộc Masan/MCH. Mô hình ONDC (Ấn Độ) — Reliance/Tata/Adani đều tham gia vì rail trung lập</li>
+          <li><strong>Hard data wall</strong> · audited bởi bên thứ ba; MCH thương mại không truy cập được PO data của anchor cạnh tranh</li>
+          <li><strong>Two-rail kiến trúc</strong> · SCF rail multi-bank (TCB + VPBank/MBB), order rail Masan-only</li>
+        </ul>
+        <p class="lp-track-p2">Mintifi mất 8 năm để đạt 300+ anchor với <strong>0</strong> bagagee thương hiệu. Nếu giữ Masan ≥ 50% chỉ có thể đạt 1–3 anchor cạnh tranh trực tiếp vào FY30. Realistic onboarding pace = 10–15 anchor/năm, không phải 30–50.</p>
+        <p class="lp-track-p2 lp-track-warn"><strong>Tại sao không sớm hơn?</strong> Mỗi anchor Unilever / Nestlé / Vinamilk biết: Masan đã từng dùng Vinacafé acquisition để launch Wake-Up 247 đánh Suntory/Red Bull, dùng VCM acquisition để chèn shelf đối thủ. Họ đọc cùng prospectus chúng ta đọc. Không có hứa hẹn data-wall nào đáng tin nếu Masan vẫn sở hữu rail. Mintifi sống được vì NBFC không có nhãn nào.</p>
+      </article>
+    </div>
+
+    <div class="lp-track-econ">
+      <span class="lp-track-econ-cap">Realistic uplift theo lộ trình</span>
+      <table class="lp-table lp-table-econ">
+        <thead><tr><th>Case</th><th>FY34E doanh thu</th><th>FY34E EBITDA</th><th>EV ở 12-15x</th></tr></thead>
+        <tbody>
+          <tr><td>MCH anchor only (Phase 0)</td><td>USD 83M</td><td>USD 28M</td><td>USD 0,34-0,42 tỷ</td></tr>
+          <tr><td>Phase 0 + Phase 1 (Mintifi mechanic + multi-brand rail)</td><td>USD 95-110M</td><td>USD 38-45M</td><td>USD 0,46-0,68 tỷ</td></tr>
+          <tr><td>Phase 0 + 1 + 2 (với spin-out)</td><td>USD 110-130M</td><td>USD 48-58M</td><td>USD 0,58-0,87 tỷ</td></tr>
+          <tr class="lp-row-emph"><td><strong>Captive uplift case · group-attributable</strong> (load-bearing IC)</td><td>—</td><td><strong>USD 137M group EBITDA</strong></td><td><strong>USD 1,6-2,1 tỷ</strong></td></tr>
+        </tbody>
+      </table>
+      <p class="lp-track-econ-note">Multi-anchor pitch nghe như 5x. Số thực ra ~1,4x. Định giá theo 1,4x. Optionality để miễn phí. Captive uplift đến WCM/MCH/MML/Phuc Long/TCB là case load-bearing cho IC, không phải standalone fintech P&amp;L.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================== WHY MASAN WINS / CAPTIVE UPLIFT ================== -->
+<section class="lp-sec lp-sec-tint" id="why">
+  <div class="lp-sec-inner">
+    <span class="lp-sec-tag">Vì sao nhóm Masan thắng</span>
+    <h2 class="lp-h2">Mỗi tiệm chạy WinX = uplift đến 5 engine cùng lúc</h2>
+    <div class="lp-uplift-grid">
+      <div class="lp-uplift">
+        <strong>MCH</strong>
+        <span>+18% SKU mix · tiệm sắp xếp lại shelf theo data, không phải theo giấy POSM</span>
+      </div>
+      <div class="lp-uplift">
+        <strong>WCM / WinMart</strong>
+        <span>Acquires HKD lifetime banking · tiệm chuyển thuê POSM, voucher, sản phẩm fresh qua WCM</span>
+      </div>
+      <div class="lp-uplift">
+        <strong>MML / MEATDeli</strong>
+        <span>+12% combo · tiệm bán MEATDeli khi có hạn mức nhập hàng (không phải hết tiền)</span>
+      </div>
+      <div class="lp-uplift">
+        <strong>Phuc Long</strong>
+        <span>Cross-channel · tiệm cung cấp địa điểm pickup cho Phuc Long shipper</span>
+      </div>
+      <div class="lp-uplift">
+        <strong>TCB</strong>
+        <span>1,4M HKD digital onboarding · giá vốn vay 0 (tiền NPP), NIM mới · acquire SME cohort không thể tự acquire</span>
+      </div>
+      <div class="lp-uplift lp-uplift-sum">
+        <strong>USD ~110tr group EBITDA</strong>
+        <span>FY34E captive uplift · USD 137M tổng – USD 28M standalone = USD 109M captive case. Đây là argument cho IC, không phải standalone P&amp;L của WinX.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================== COMPS / REGULATORY ================== -->
+<section class="lp-sec" id="comps">
+  <div class="lp-sec-inner">
+    <span class="lp-sec-tag">Tham chiếu &amp; pháp lý</span>
+    <h2 class="lp-h2">Cơ sở pháp lý + mô hình tham chiếu</h2>
+
+    <div class="lp-comp-grid">
+      <div class="lp-comp">
+        <span class="lp-comp-tag lp-comp-tag-good">Pháp lý nền</span>
+        <h3>Resolution 198/2025/QH15 · Decree 70/2025 · Decree 141/2026</h3>
+        <p>Resolution 198 bỏ thuế khoán cho 5,2M HKD từ 1/1/2026; Thông tư 88/2021 yêu cầu sổ S1-S7 — sổ giấy không làm được. Decree 70/2025 buộc HKD ≥ VND 1 tỷ phát hành HĐĐT-MTT (~270k HKD trong scope). Decree 141/2026 nâng ngưỡng miễn thuế từ VND 100M → 1 tỷ (hiệu lực 1/1/2026, hồi tố).</p>
+        <p class="lp-comp-note">Lực kéo lớn hơn Decree 70: cả 5,2M HKD cần lớp vận hành. Không có walk-back. Decree 70 đã bị GDT walk-back 16/4/2026 cho HKD &lt; 500M.</p>
+      </div>
+
+      <div class="lp-comp">
+        <span class="lp-comp-tag lp-comp-tag-good">Giấy phép trên tay</span>
+        <h3>Mobicast IPS · ba giấy phép NHNN</h3>
+        <p>Ví điện tử Win Money · thu hộ/chi hộ · cổng thanh toán. Cấp 2+ năm trước, đang dormant. Theo Decree 52/2024 Art. 27.1.e và 27.1.g, NHNN có thể thu hồi nếu 6 tháng liên tục không cung cấp dịch vụ.</p>
+        <p class="lp-comp-note">Use-it-or-lose-it. WinX Business là sản phẩm duy nhất gán "real use case" cho cả ba giấy phép. Phase 0 hard gate: ý kiến pháp lý độc lập về trạng thái giấy phép trước IC.</p>
+      </div>
+
+      <div class="lp-comp">
+        <span class="lp-comp-tag lp-comp-tag-good">Mô hình tham chiếu</span>
+        <h3>Mintifi (Ấn Độ) · Batumbu (Indonesia) · MISA Lending (VN)</h3>
+        <p><strong>Mintifi</strong>: USD 850M valuation, 300+ anchor, USD 2,5 tỷ giải ngân FY25, có lãi từ FY23. Cơ chế: anchor → NPP → tiệm, settlement-rail. <strong>Batumbu (Validus ID)</strong>: IDR 45,1nghìn tỷ tích lũy, EBITDA &gt; 50%, BNI channel IDR 1,2nghìn tỷ. <strong>MISA Lending</strong>: VND 16.000 tỷ tích lũy, gói riêng VPBank cho HKD dùng MISA.</p>
+        <p class="lp-comp-note">MISA chứng minh rằng credit-referral chạy được mà không cần POS + float + e-wallet. WinX có nhiều hơn MISA: dual-ledger (MCH sell-in + POS sell-out + WIN consumer graph) + payment-rail-out cho NCC không phải Masan.</p>
+      </div>
+
+      <div class="lp-comp lp-comp-warn">
+        <span class="lp-comp-tag lp-comp-tag-warn">Anti-comp · đã chứng minh chết</span>
+        <h3>Wise / Mercury / Aspire / Tonik / Funding Societies</h3>
+        <p><strong>Wise / Mercury</strong>: cross-border + NIM trên idle deposit · tạp hóa VN không có hai thứ này. <strong>Brex / Ramp</strong>: card interchange · NAPAS sub-100bps vs US 250bps. <strong>Aspire</strong>: 8 năm SEA, explicit không serve GT. <strong>Tonik PH</strong>: USD 188M, 5 năm break-even, monoline consumer credit. <strong>Funding Societies VN</strong>: cần VAT invoice + đăng ký kinh doanh, gate 80% GT khỏi cửa.</p>
+      </div>
+
+      <div class="lp-comp lp-comp-warn">
+        <span class="lp-comp-tag lp-comp-tag-warn">Anti-comp · graveyard VN</span>
+        <h3>Telio · Validus VN · BukuKas · Khatabook</h3>
+        <p><strong>Telio</strong>: dissolve 12/2024 sau USD 52M raise. Lý do: biên FMCG quá mỏng cho order-rail + kho. <strong>Validus VN</strong>: dừng 3/2025 vì SBV chưa có sandbox P2P sẵn (Decree 94/2025 hiệu lực 7/2025 mới 0/10 sandbox slots đang chờ). <strong>BukuKas / Khatabook</strong>: free ledger không monetize · Khatabook revenue collapse 75%.</p>
+      </div>
+
+      <div class="lp-comp lp-comp-warn">
+        <span class="lp-comp-tag lp-comp-tag-warn">Cẩn trọng cấu trúc</span>
+        <h3>Alibaba Lingshoutong · Udaan · VinShop OneMount</h3>
+        <p><strong>Lingshoutong</strong>: đóng 3/2024 vì Alibaba đồng thời chạy Hema/Taocaicai — anchor không tin chủ trung lập. <strong>Udaan</strong>: -70% valuation vì pivot private-label, đánh anchor mình từng host. <strong>VinShop</strong>: 5 năm vận hành, 100k tiệm, Vingroup restructure equity, <strong>0 anchor Masan-cạnh-tranh</strong>.</p>
+        <p class="lp-comp-note">Đây là lý do Phase 2 (anchor trực tiếp cạnh tranh) đòi hỏi spin-out + Masan ≤ 50% nếu Group muốn lane này.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================== PRE-IC ASKS ================== -->
+<section class="lp-sec" id="preic">
+  <div class="lp-sec-inner">
+    <span class="lp-sec-tag">Pre-IC</span>
+    <h2 class="lp-h2">Ba việc phải làm trước khi IC vote</h2>
+    <div class="lp-asks">
+      <div class="lp-ask">
+        <span class="lp-ask-num">01</span>
+        <h3>Thư cam kết TCB Exco</h3>
+        <p>Ba điểm: (a) non-cannibalised P&amp;L allocation cho khoản vay WinX-originated trong ngân sách TCB SME; (b) segment exclusivity cho tạp hóa + supply-chain merchant; (c) underwriting headroom <strong>USD 500M tối thiểu</strong> cho Phase 1. Không có headroom = multi-bank fallback bắt đầu lúc USD 250M = Telio-hóa.</p>
+      </div>
+      <div class="lp-ask">
+        <span class="lp-ask-num">02</span>
+        <h3>Ý kiến pháp lý độc lập · ba việc</h3>
+        <p>(a) Mobicast IPS license · tồn tại + thời gian reactivation. (b) Tripartite SCF structure cho wholesaler-as-proxy lending theo Circular 12/2024. (c) PDPL 91/2025 + Decree 13/2023 compliance kernel cho cross-brand data qua payment-rail-out.</p>
+      </div>
+      <div class="lp-ask">
+        <span class="lp-ask-num">03</span>
+        <h3>Reconcile số liệu Retail Supreme</h3>
+        <p>v22 + v4 IC memo cite "320K digital members / 420K Retail Supreme reach". AGM 2026 disclosure cite "15M WinX consumer members / 500K Retail Supreme businesses target". Không khớp. Credit book underwritten trên số liệu chưa verified là rủi ro dữ liệu lớn nhất trong deal.</p>
+      </div>
+    </div>
+    <div class="lp-extra-ask">
+      <strong>Quyết định Group-level cần đặt ra (không phải hôm nay, nhưng phải đặt):</strong> Group có sẵn sàng dilute Masan equity trong WinX Business xuống ≤ 50% theo cấu trúc spin-out tương lai (FY29+), nếu/khi anchor trực tiếp cạnh tranh trở thành expansion thật? Trả lời "không" nghĩa là chấp nhận multi-anchor ceiling ở +USD 14M FY34E EBITDA. Trả lời "có" mở ra +USD 30M nhưng đòi governance/data-wall đầu tư đáng kể.
+    </div>
+  </div>
+</section>
+
+<!-- ================== CTA / FOOTER ================== -->
+<section class="lp-cta">
+  <div class="lp-cta-inner">
+    <h2>Mở cockpit demo · 3 cột live cùng một merchant record</h2>
+    <p>POS bán · sổ nợ thu · tài khoản kinh doanh giữ tiền · AI cảnh báo · hạn mức nhập hàng MCH auto-trừ. Cùng một màn hình.</p>
+    <a class="lp-cta-primary lp-cta-big" href="demo.html">Mở cockpit demo →</a>
+    <p class="lp-cta-note">Demo Vietnamese throughout. Mọi tile bấm được. Reset bằng nút ↺.</p>
+  </div>
+</section>
+
+<footer class="lp-foot">
+  <div class="lp-foot-inner">
+    <div class="lp-foot-badges">
       <span class="lic-badge"><span class="lic-mark">Ví</span>Ví điện tử<span class="lic-issuer">NHNN</span></span>
       <span class="lic-badge"><span class="lic-mark">TC</span>Thu hộ, Chi hộ<span class="lic-issuer">NHNN</span></span>
       <span class="lic-badge"><span class="lic-mark">CT</span>Cổng thanh toán<span class="lic-issuer">NHNN</span></span>
       <span class="lic-badge"><span class="lic-mark">A3</span>Bảo mật cấp 3<span class="lic-issuer">BCA</span></span>
+      <span class="lic-badge"><span class="lic-mark">TCB</span>Đại lý TCB · giải ngân + thu nợ<span class="lic-issuer">SCF</span></span>
     </div>
-    <div class="ck-foot-text">
-      Tiền của tiệm gửi ở NH đối tác có giấy phép NHNN. Tham chiếu global: <strong>Wise Business · Mercury · Aspire</strong>.
+    <div class="lp-foot-meta">
+      Tiền của tiệm gửi ở NH đối tác có giấy phép NHNN. WinX origination, TCB ghi sổ. Không phải neobank tiêu dùng.
+      <br>
+      Memo nguồn: SEA Ltd / Monee research v1 · WinX Business v4 · Finance OS v3 · SEA Fintech PMF VN GT v2 · Comparison Memo v1. D. Pham, S&amp;D, 18/05/2026.
     </div>
   </div>
 </footer>
 
-<!-- ================== MODAL: ONBOARDING (Khả năng 1) ================== -->
-<div class="ck-modal" id="modalOnboarding" hidden role="dialog" aria-modal="true" aria-labelledby="modalOnboardingTitle">
-  <div class="ck-modal-back" data-close></div>
-  <div class="ck-modal-card">
-    <header class="ck-modal-h">
-      <h3 id="modalOnboardingTitle">Mở ví doanh nghiệp trong 3 phút</h3>
-      <button type="button" class="ck-modal-x" data-close aria-label="Đóng">✕</button>
-    </header>
-    <div class="ck-modal-body">
-      <p class="ck-modal-lede">Cô Minh Anh đã hoàn tất các bước này ngày 12/04/2026. Đây là tóm tắt — chủ tiệm mới làm trong &lt; 3 phút.</p>
-      <ol class="ob-steps">
-        <li><strong>1. Số điện thoại + OTP</strong><span>Số đứng tên chủ tiệm. SMS định danh thương hiệu. 20 giây.</span></li>
-        <li><strong>2. CCCD gắn chip</strong><span>Chụp 2 mặt + selfie. eKYC ngay tại app. 40 giây.</span></li>
-        <li><strong>3. MST hộ kinh doanh hoặc DN</strong><span>DN: tra cứu tự động. Hộ kinh doanh: nhập tay hoặc OCR giấy phép. 30 giây.</span></li>
-        <li><strong>4. Mở 3 sub-VA (kênh bán)</strong><span>Quầy · Online · Đi thu. Phát mã QR ngay. 30 giây.</span></li>
-        <li class="ob-step-done"><strong>5. Hoàn tất</strong><span>Tài khoản hoạt động · giữ tại NH đối tác · audit log bật.</span></li>
-      </ol>
-      <div class="ck-modal-note">Cơ sở pháp lý: Nghị định 52/2024/NĐ-CP về thanh toán không dùng tiền mặt; quy chuẩn eKYC theo Thông tư 17/2018/TT-NHNN.</div>
-    </div>
-  </div>
-</div>
-
-<!-- ================== MODAL: SHOP PROFILE ================== -->
-<div class="ck-modal" id="modalShop" hidden role="dialog" aria-modal="true" aria-labelledby="modalShopTitle">
-  <div class="ck-modal-back" data-close></div>
-  <div class="ck-modal-card">
-    <header class="ck-modal-h">
-      <h3 id="modalShopTitle">Hồ sơ tiệm</h3>
-      <button type="button" class="ck-modal-x" data-close aria-label="Đóng">✕</button>
-    </header>
-    <div class="ck-modal-body">
-      <div class="sp-row"><span>Tên tiệm</span><strong>Tạp hóa Minh Anh</strong></div>
-      <div class="sp-row"><span>Chủ</span><strong>Nguyễn Thị Minh Anh · DOB 12/04/1981</strong></div>
-      <div class="sp-row"><span>Địa chỉ</span><strong>123 Hồ Học Lãm, P. An Lạc, Q. Bình Tân, TP.HCM</strong></div>
-      <div class="sp-row"><span>MST hộ kinh doanh</span><strong>8101 234 567</strong></div>
-      <div class="sp-row"><span>POS-ID</span><strong>POS-00872</strong></div>
-      <div class="sp-row"><span>Ngày mở ví</span><strong>12/04/2026 (29 ngày)</strong></div>
-      <div class="sp-row"><span>Doanh số 30 ngày</span><strong>247.000.000 ₫</strong></div>
-      <div class="sp-row"><span>Biên lợi nhuận</span><strong>14,3%</strong></div>
-      <div class="sp-row"><span>Tỷ trọng MCH SKU</span><strong>43%</strong></div>
-    </div>
-  </div>
-</div>
-
-<!-- ================== MODAL: E-INVOICE (Khả năng 6) ================== -->
-<div class="ck-modal" id="modalEinv" hidden role="dialog" aria-modal="true" aria-labelledby="modalEinvTitle">
-  <div class="ck-modal-back" data-close></div>
-  <div class="ck-modal-card">
-    <header class="ck-modal-h">
-      <h3 id="modalEinvTitle">Hóa đơn điện tử · Nghị định 70/2025</h3>
-      <button type="button" class="ck-modal-x" data-close aria-label="Đóng">✕</button>
-    </header>
-    <div class="ck-modal-body">
-      <div class="einv-card">
-        <div class="einv-row einv-row-head">
-          <strong>HÓA ĐƠN GTGT ĐIỆN TỬ · HĐĐT-MTT</strong>
-          <span>Mã CQT: <span id="einvCqt">00C73E3A-2026-WX</span></span>
-        </div>
-        <div class="einv-row"><span>Số hóa đơn</span><strong id="einvNumber">WX-00192</strong></div>
-        <div class="einv-row"><span>Ngày phát hành</span><strong id="einvDate">11/05/2026 · 10:42</strong></div>
-        <div class="einv-row"><span>Người bán</span><strong>Tạp hóa Minh Anh · MST 8101 234 567</strong></div>
-        <div class="einv-row"><span>Người mua</span><strong>Chú An · không khai MST</strong></div>
-        <div class="einv-row"><span>Tổng tiền hàng</span><strong>181.000 ₫ <em>(KM MCH −5.000 ₫)</em></strong></div>
-        <div class="einv-row einv-row-foot"><span>Trạng thái</span><strong class="einv-ok">✓ Đã gửi Tổng cục Thuế · GDT-MTT</strong></div>
-      </div>
-      <p class="ck-modal-note">Mỗi giao dịch POS tự phát hành HĐĐT khởi tạo từ máy tính tiền theo NĐ 70/2025/NĐ-CP. WinX gửi tự động về cổng GDT, đối soát hàng ngày. Tuần này: <strong>312 hóa đơn</strong> đã đối soát.</p>
-    </div>
-  </div>
-</div>
-
-<!-- ================== MODAL: VA TOPOLOGY (Khả năng 4) ================== -->
-<div class="ck-modal" id="modalVa" hidden role="dialog" aria-modal="true" aria-labelledby="modalVaTitle">
-  <div class="ck-modal-back" data-close></div>
-  <div class="ck-modal-card">
-    <header class="ck-modal-h">
-      <h3 id="modalVaTitle">Ví giữ ở ngân hàng đối tác</h3>
-      <button type="button" class="ck-modal-x" data-close aria-label="Đóng">✕</button>
-    </header>
-    <div class="ck-modal-body">
-      <div class="va-card-wallet">
-        <span class="va-cap">Ví doanh nghiệp WinX</span>
-        <strong class="va-num">9821 0000 9872</strong>
-        <span class="va-amt">42.180.000 ₫</span>
-        <span class="va-note">Đứng tên Tạp hóa Minh Anh.</span>
-      </div>
-      <div class="va-arrows">↓ 3 kênh bán · 3 sub-VA riêng</div>
-      <div class="va-grid">
-        <div class="va-sub"><span class="va-sub-cap">Quầy POS</span><strong>9821 0001 9872</strong><span>4,5tr hôm nay</span></div>
-        <div class="va-sub"><span class="va-sub-cap">Đơn online</span><strong>9821 0002 9872</strong><span>0,5tr hôm nay</span></div>
-        <div class="va-sub"><span class="va-sub-cap">Nhân viên đi thu</span><strong>9821 0003 9872</strong><span>0,13tr hôm nay</span></div>
-      </div>
-      <div class="va-bank">
-        <span class="va-bank-mark">⟁</span>
-        <div>
-          <strong>Tài khoản đảm bảo · ngân hàng đối tác</strong>
-          <span>WinX không giữ tiền của tiệm. Toàn bộ số dư nằm tại ngân hàng có giấy phép NHNN. Giấy phép Thu hộ, Chi hộ cho phép WinX vận hành dòng tiền — không thay quyền giám sát của ngân hàng.</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ================== MODAL: STAFF MATRIX ================== -->
-<div class="ck-modal" id="modalStaffMatrix" hidden role="dialog" aria-modal="true" aria-labelledby="modalStaffMatrixTitle">
-  <div class="ck-modal-back" data-close></div>
-  <div class="ck-modal-card ck-modal-card-wide">
-    <header class="ck-modal-h">
-      <h3 id="modalStaffMatrixTitle">Phân quyền &amp; audit log</h3>
-      <button type="button" class="ck-modal-x" data-close aria-label="Đóng">✕</button>
-    </header>
-    <div class="ck-modal-body">
-      <table class="sm-table">
-        <thead><tr><th>Thành viên</th><th>Bán</th><th>Thu</th><th>Chi</th><th>Duyệt</th><th>Audit</th></tr></thead>
-        <tbody>
-          <tr><td><span class="st-avatar st-avatar-lan">L</span>Lan · thu ngân</td><td>✓</td><td>✓</td><td>—</td><td>—</td><td>bật</td></tr>
-          <tr><td><span class="st-avatar st-avatar-huy">H</span>Huy · bán hàng</td><td>✓</td><td>✓</td><td>—</td><td>—</td><td>bật</td></tr>
-          <tr><td><span class="st-avatar st-avatar-mai">M</span>Mai · kế toán</td><td>—</td><td>—</td><td>≤2tr</td><td>—</td><td>bật</td></tr>
-          <tr class="sm-owner"><td><span class="st-avatar st-avatar-owner">MA</span>Cô Minh Anh · chủ</td><td>✓</td><td>✓</td><td>không giới hạn</td><td>tất cả</td><td>bật</td></tr>
-        </tbody>
-      </table>
-      <p class="ck-modal-note">Quy tắc mặc định cho tạp hoá / SME: <strong>nhân viên chỉ thu, không chi</strong>. Chi &gt; 1 triệu do chủ tiệm duyệt. Mọi giao dịch đều log theo NĐ 13/2023 PDPA và lưu 5 năm.</p>
-      <button type="button" class="ck-cta-secondary" data-open="modalStaff">+ Mời thành viên mới</button>
-    </div>
-  </div>
-</div>
-
-<!-- ================== MODAL: STAFF INVITE ================== -->
-<div class="ck-modal" id="modalStaff" hidden role="dialog" aria-modal="true" aria-labelledby="modalStaffTitle">
-  <div class="ck-modal-back" data-close></div>
-  <div class="ck-modal-card">
-    <header class="ck-modal-h">
-      <h3 id="modalStaffTitle">Mời thành viên · phân quyền</h3>
-      <button type="button" class="ck-modal-x" data-close aria-label="Đóng">✕</button>
-    </header>
-    <div class="ck-modal-body">
-      <form id="staffForm" class="staff-form">
-        <label class="sf-row"><span>Họ và tên</span><input type="text" id="sfName" value="Nguyễn Thu Hà" /></label>
-        <label class="sf-row"><span>Số điện thoại</span><input type="text" id="sfPhone" value="0907 123 456" /></label>
-        <div class="sf-row sf-row-radio">
-          <span>Vai trò</span>
-          <div class="sf-radios">
-            <label><input type="radio" name="sfRole" value="cashier" checked /> Thu ngân (thu, không chi)</label>
-            <label><input type="radio" name="sfRole" value="sales" /> Bán hàng</label>
-            <label><input type="radio" name="sfRole" value="accountant" /> Kế toán (chi tối đa 2 triệu)</label>
-          </div>
-        </div>
-        <div class="sf-foot">
-          <span class="sf-audit">✓ Audit log bật mặc định · NĐ 13/2023 PDPA</span>
-          <button type="submit" class="ck-cta-primary">Gửi lời mời SMS</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-<!-- ================== MODAL: CASH CLOSE ================== -->
-<div class="ck-modal" id="modalCash" hidden role="dialog" aria-modal="true" aria-labelledby="modalCashTitle">
-  <div class="ck-modal-back" data-close></div>
-  <div class="ck-modal-card">
-    <header class="ck-modal-h">
-      <h3 id="modalCashTitle">Đóng quỹ tiền mặt · ca Lan 17–18h</h3>
-      <button type="button" class="ck-modal-x" data-close aria-label="Đóng">✕</button>
-    </header>
-    <div class="ck-modal-body">
-      <div class="cash-row"><span>POS ghi nhận (theo HĐĐT)</span><strong>1.200.000 ₫</strong></div>
-      <div class="cash-row"><span>Lan khai tiền mặt</span><strong>650.000 ₫</strong></div>
-      <div class="cash-row cash-row-diff"><span>Chênh lệch</span><strong>−550.000 ₫</strong></div>
-      <div class="cash-flag">
-        <span class="cash-flag-mark">⚠</span>
-        <p>AI WinX flag: trong 90 ngày, ca Lan 17–18h thường có doanh thu 1,2tr/giờ. Hôm nay khai 0,65tr. Gợi ý kiểm tra camera quầy hoặc đếm lại két.</p>
-      </div>
-      <div class="cash-actions">
-        <button type="button" class="ck-cta-secondary" data-close>Để Mai kiểm tra cuối ca</button>
-        <button type="button" class="ck-cta-primary" id="cashConfirm">Ghi nhận chênh &amp; log audit</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ================== MODAL: PAYABLES ================== -->
-<div class="ck-modal" id="modalPayables" hidden role="dialog" aria-modal="true" aria-labelledby="modalPayablesTitle">
-  <div class="ck-modal-back" data-close></div>
-  <div class="ck-modal-card">
-    <header class="ck-modal-h">
-      <h3 id="modalPayablesTitle">Phải trả ngày mai · 14,6tr</h3>
-      <button type="button" class="ck-modal-x" data-close aria-label="Đóng">✕</button>
-    </header>
-    <div class="ck-modal-body">
-      <ul class="pay-list">
-        <li><div><strong>NPP MCH HCM-07</strong><span>HĐ #MCH-4412 · đến hạn 12/05</span></div><strong>12.400.000 ₫</strong></li>
-        <li><div><strong>NCC đá viên Bình Tân</strong><span>#ICE-221 · đến hạn 12/05</span></div><strong>1.200.000 ₫</strong></li>
-        <li><div><strong>Anh Tâm · giao hàng</strong><span>Tuần 19 · đến hạn 12/05</span></div><strong>1.000.000 ₫</strong></li>
-      </ul>
-      <p class="ck-modal-note">Bấm "Phê duyệt &amp; trả" ở khung Cần duyệt để xử lý NPP MCH (AI đã khớp hóa đơn và đề xuất chiết khấu 420k).</p>
-    </div>
-  </div>
-</div>
-
-<!-- ================== MODAL: CASHFLOW SCENARIOS ================== -->
-<div class="ck-modal" id="modalCashflow" hidden role="dialog" aria-modal="true" aria-labelledby="modalCashflowTitle">
-  <div class="ck-modal-back" data-close></div>
-  <div class="ck-modal-card ck-modal-card-wide">
-    <header class="ck-modal-h">
-      <h3 id="modalCashflowTitle">Runway tiền mặt &amp; kịch bản</h3>
-      <button type="button" class="ck-modal-x" data-close aria-label="Đóng">✕</button>
-    </header>
-    <div class="ck-modal-body">
-      <div class="cf-grid">
-        <div class="cf-card">
-          <span class="cf-cap">Hiện tại</span>
-          <strong>6,5 ngày</strong>
-          <span>Số dư 42,18tr ÷ chi TB 6,5tr/ngày</span>
-        </div>
-        <div class="cf-card">
-          <span class="cf-cap">Sau khi trả NPP MCH 11,98tr</span>
-          <strong>5,2 ngày</strong>
-          <span>Còn đủ tới 16/05</span>
-        </div>
-        <div class="cf-card cf-card-good">
-          <span class="cf-cap">Rút 80tr đã duyệt sẵn</span>
-          <strong>17,3 ngày</strong>
-          <span>9,5%/năm · trả 8,7tr/tháng từ doanh số POS</span>
-        </div>
-      </div>
-      <p class="ck-modal-note">AI WinX cập nhật runway mỗi đêm dựa trên 90 ngày POS + lịch trả NPP. Hạn mức 100tr đã duyệt sẵn — không cần xin giấy.</p>
-      <button type="button" class="ck-cta-primary" data-open="modalLoan">Xem điều khoản vay 100tr</button>
-    </div>
-  </div>
-</div>
-
-<!-- ================== MODAL: PAYROLL ================== -->
-<div class="ck-modal" id="modalPayroll" hidden role="dialog" aria-modal="true" aria-labelledby="modalPayrollTitle">
-  <div class="ck-modal-back" data-close></div>
-  <div class="ck-modal-card">
-    <header class="ck-modal-h">
-      <h3 id="modalPayrollTitle">Trả lương · tuần 19</h3>
-      <button type="button" class="ck-modal-x" data-close aria-label="Đóng">✕</button>
-    </header>
-    <div class="ck-modal-body">
-      <ul class="pay-list">
-        <li><div><strong>Lan · thu ngân</strong><span>40 giờ × 75k</span></div><strong>3.000.000 ₫</strong></li>
-        <li><div><strong>Huy · bán hàng</strong><span>36 giờ × 70k</span></div><strong>2.520.000 ₫</strong></li>
-        <li><div><strong>Mai · kế toán</strong><span>16 giờ × 100k</span></div><strong>1.600.000 ₫</strong></li>
-      </ul>
-      <div class="pay-total"><span>Tổng tuần này</span><strong>7.120.000 ₫</strong></div>
-      <p class="ck-modal-note">Chuyển vào tài khoản cá nhân từng nhân viên. WinX tự tạo phiếu lương, lưu 5 năm theo Bộ luật Lao động.</p>
-      <button type="button" class="ck-cta-primary" id="payrollGo">Trả lương cả 3</button>
-    </div>
-  </div>
-</div>
-
-<!-- ================== MODAL: TAX ================== -->
-<div class="ck-modal" id="modalTax" hidden role="dialog" aria-modal="true" aria-labelledby="modalTaxTitle">
-  <div class="ck-modal-back" data-close></div>
-  <div class="ck-modal-card">
-    <header class="ck-modal-h">
-      <h3 id="modalTaxTitle">Thuế hộ kinh doanh · tổng hợp tự động</h3>
-      <button type="button" class="ck-modal-x" data-close aria-label="Đóng">✕</button>
-    </header>
-    <div class="ck-modal-body">
-      <p class="ck-modal-lede">Từ <strong>1/1/2026</strong> hộ kinh doanh bỏ phương pháp khoán (NQ 198/2025/QH15) — Tạp hoá Minh Anh kê khai theo doanh thu thực tế từ HĐĐT-MTT. Tỷ lệ % trên doanh thu (TT 40/2021/TT-BTC, hàng hoá): VAT 1% + TNCN 0,5% = 1,5%.</p>
-      <div class="tax-row"><span>Doanh thu tháng (từ 312 HĐĐT-MTT)</span><strong>247.000.000 ₫</strong></div>
-      <div class="tax-row"><span>VAT kê khai (1%)</span><strong>2.470.000 ₫</strong></div>
-      <div class="tax-row"><span>TNCN kê khai (0,5%)</span><strong>1.235.000 ₫</strong></div>
-      <div class="tax-row tax-row-net"><span>Tổng thuế tháng phải nộp</span><strong>3.705.000 ₫</strong></div>
-      <p class="ck-modal-note">WinX tự tổng hợp doanh thu từ HĐĐT-MTT theo Nghị định 70/2025/NĐ-CP, sinh hồ sơ khai thuế và nộp qua eTax Mobile. Đến hạn nộp tháng: 20/06. Doanh thu năm ước 3 tỷ — trên ngưỡng miễn thuế 1 tỷ/năm (NĐ 68/2026/NĐ-CP).</p>
-      <button type="button" class="ck-cta-primary" id="taxFile">Nộp lên cổng GDT qua eTax Mobile</button>
-    </div>
-  </div>
-</div>
-
-<!-- ================== MODAL: LOAN ================== -->
-<div class="ck-modal" id="modalLoan" hidden role="dialog" aria-modal="true" aria-labelledby="modalLoanTitle">
-  <div class="ck-modal-back" data-close></div>
-  <div class="ck-modal-card">
-    <header class="ck-modal-h">
-      <h3 id="modalLoanTitle">Hạn mức vay đã duyệt sẵn · 100 triệu ₫</h3>
-      <button type="button" class="ck-modal-x" data-close aria-label="Đóng">✕</button>
-    </header>
-    <div class="ck-modal-body">
-      <div class="loan-hero">
-        <strong>100.000.000 ₫</strong>
-        <span>Đã duyệt sẵn dựa trên doanh số 90 ngày POS · NH đối tác</span>
-      </div>
-      <div class="loan-grid">
-        <div><span>Lãi suất</span><strong>9,5%/năm</strong></div>
-        <div><span>Kỳ hạn</span><strong>12 tháng</strong></div>
-        <div><span>Trả góp</span><strong>8,7tr/tháng</strong></div>
-        <div><span>Cách trả</span><strong>tự trừ 8% mỗi đơn QR</strong></div>
-        <div><span>Điểm tín dụng</span><strong>B+ (74/100)</strong></div>
-        <div><span>Tỷ lệ trả đúng hạn</span><strong>96%</strong></div>
-      </div>
-      <p class="ck-modal-note">Khoản vay đứng tên hộ kinh doanh, ghi nhận trên balance sheet của NH đối tác. WinX là nền tảng origination, không cho vay trên sổ riêng.</p>
-      <button type="button" class="ck-cta-primary" id="loanDraw">Rút 80 triệu ₫ ngay</button>
-    </div>
-  </div>
-</div>
-
-<!-- ================== MODAL: CUSTOMER DEBT DETAIL ================== -->
-<div class="ck-modal" id="modalDebt" hidden role="dialog" aria-modal="true" aria-labelledby="modalDebtTitle">
-  <div class="ck-modal-back" data-close></div>
-  <div class="ck-modal-card">
-    <header class="ck-modal-h">
-      <h3 id="modalDebtTitle">Chi tiết sổ nợ</h3>
-      <button type="button" class="ck-modal-x" data-close aria-label="Đóng">✕</button>
-    </header>
-    <div class="ck-modal-body">
-      <div class="debt-hero">
-        <span class="dt-avatar dt-avatar-big" id="dbAvatar">An</span>
-        <div>
-          <strong id="dbName">Chú An</strong>
-          <span id="dbPhone">0907·xxx·128 · khách hạng Bạc · mua 3-4 lần/tuần</span>
-        </div>
-        <strong class="db-amt" id="dbAmt">350.000 ₫</strong>
-      </div>
-      <div class="db-history" id="dbHistory">
-        <span class="ck-mini-cap">Lịch sử nợ · 18 ngày</span>
-        <ul>
-          <li><span>23/04</span><span>Mì gói + sữa + thuốc lá</span><strong>120.000 ₫</strong></li>
-          <li><span>27/04</span><span>Bia + đồ ăn vặt</span><strong>185.000 ₫</strong></li>
-          <li><span>05/05</span><span>Trả 1 phần</span><strong>−45.000 ₫</strong></li>
-          <li><span>09/05</span><span>Mì + nước ngọt</span><strong>90.000 ₫</strong></li>
-        </ul>
-      </div>
-      <p class="ck-modal-note">Gửi VietQR có link 1-click. Khi khách thanh toán, ví Quầy ghi nhận và tự xoá nợ.</p>
-      <button type="button" class="ck-cta-primary" id="dbSendQr">Gửi nhắc VietQR qua SMS</button>
-    </div>
-  </div>
-</div>
-
-<!-- ================== MODAL: RESTOCK ================== -->
-<div class="ck-modal" id="modalRestock" hidden role="dialog" aria-modal="true" aria-labelledby="modalRestockTitle">
-  <div class="ck-modal-back" data-close></div>
-  <div class="ck-modal-card ck-modal-card-wide">
-    <header class="ck-modal-h">
-      <h3 id="modalRestockTitle">Đặt lại hàng từ NPP MCH</h3>
-      <button type="button" class="ck-modal-x" data-close aria-label="Đóng">✕</button>
-    </header>
-    <div class="ck-modal-body">
-      <p class="ck-modal-lede">AI WinX đề xuất số lượng dựa trên vòng quay 90 ngày POS:</p>
-      <table class="rs-table">
-        <thead><tr><th>SKU</th><th>Tồn</th><th>Vòng (ngày)</th><th>Đề xuất nhập</th><th>Giá vốn</th></tr></thead>
-        <tbody>
-          <tr><td><span class="prod-chip prod-omachi">Om</span>Omachi sườn hầm</td><td>23</td><td>2,5</td><td>30 thùng</td><td>9.000.000 ₫</td></tr>
-          <tr><td><span class="prod-chip prod-chinsu">Cs</span>Chinsu cá cơm</td><td>15</td><td>4,1</td><td>20 thùng</td><td>6.400.000 ₫</td></tr>
-          <tr><td><span class="prod-chip prod-wakeup">W</span>Wake-Up 247</td><td>8</td><td>1,2</td><td>25 thùng</td><td>5.000.000 ₫</td></tr>
-          <tr><td><span class="prod-chip prod-vinacafe">Vc</span>Vinacafé 3in1</td><td>41</td><td>8,5</td><td>—</td><td>—</td></tr>
-          <tr class="rs-skip"><td><span class="prod-chip prod-x">X</span>SKU X (chậm)</td><td>12</td><td>38</td><td>tránh / trả NPP</td><td>—</td></tr>
-        </tbody>
-      </table>
-      <div class="rs-total"><span>Tổng PO đề xuất</span><strong>20.400.000 ₫</strong></div>
-      <button type="button" class="ck-cta-primary" id="rsPo">Tạo PO &amp; gửi NPP MCH HCM-07</button>
-    </div>
-  </div>
-</div>
-
-<!-- ================== MODAL: LOYALTY CONSOLE ================== -->
-<div class="ck-modal" id="modalLoyalty" hidden role="dialog" aria-modal="true" aria-labelledby="modalLoyaltyTitle">
-  <div class="ck-modal-back" data-close></div>
-  <div class="ck-modal-card ck-modal-card-wide">
-    <header class="ck-modal-h">
-      <h3 id="modalLoyaltyTitle">Loyalty &amp; voucher · brand-funded từ Masan</h3>
-      <button type="button" class="ck-modal-x" data-close aria-label="Đóng">✕</button>
-    </header>
-    <div class="ck-modal-body">
-      <p class="ck-modal-lede">Brands (Chin-Su, Nam Ngư, Omachi, MEATDeli, Heo Nhỉ) trả ngân sách loyalty về tiệm. Khách scan QR sản phẩm trong Zalo Mini App → tích điểm → đổi voucher tại tiệm. Cô Minh Anh nhận hoa hồng cho mỗi voucher đổi.</p>
-
-      <div class="lc-kpi-row">
-        <div class="lc-kpi"><span>Hoa hồng tháng này</span><strong>1.870.000 ₫</strong><em class="wk-up">▲ 12% MoM</em></div>
-        <div class="lc-kpi"><span>Voucher đổi tại tiệm · tháng</span><strong>108</strong><em>5 brand · 47 khách</em></div>
-        <div class="lc-kpi"><span>Uplift doanh số brand SKU</span><strong>+12%</strong><em>chạm brand · trung bình GT +6%</em></div>
-        <div class="lc-kpi lc-kpi-rank"><span>Xếp hạng GT redeem rate</span><strong>Top 8%</strong><em>CR3 18% vs 11% GT</em></div>
-      </div>
-
-      <div class="lc-section">
-        <span class="ck-mini-cap">Chiến dịch brand đang chạy · cập nhật từ Tết Vàng Đến Ví 2026</span>
-        <table class="lc-table">
-          <thead><tr><th>Brand</th><th>Scan tỷ lệ</th><th>Đổi voucher</th><th>Hoa hồng tháng</th><th>Hết hạn</th></tr></thead>
-          <tbody>
-            <tr>
-              <td><span class="brand-chip brand-chip-omachi">Om</span>Omachi Thần Tốc</td>
-              <td>5,5%</td><td><strong class="lc-cr-best">41%</strong></td>
-              <td><strong>510.000 ₫</strong></td><td>28/02</td>
-            </tr>
-            <tr>
-              <td><span class="brand-chip brand-chip-namngu">Nn</span>Nam Ngư x10 điểm</td>
-              <td>3,8%</td><td><strong>16%</strong></td>
-              <td><strong>480.000 ₫</strong></td><td>28/02</td>
-            </tr>
-            <tr>
-              <td><span class="brand-chip brand-chip-chinsu">Cs</span>Chin-Su Tết Tốt</td>
-              <td>3,2%</td><td><strong>15,8%</strong></td>
-              <td><strong>420.000 ₫</strong></td><td>28/02</td>
-            </tr>
-            <tr>
-              <td><span class="brand-chip brand-chip-meatdeli">Md</span>MEATDeli combo</td>
-              <td>2,1%</td><td><strong>22%</strong></td>
-              <td><strong>280.000 ₫</strong></td><td>15/05</td>
-            </tr>
-            <tr>
-              <td><span class="brand-chip brand-chip-heonhi">Hn</span>Heo Nhỉ tiết kiệm</td>
-              <td>0,9%</td><td><strong>11%</strong></td>
-              <td><strong>180.000 ₫</strong></td><td>10/05</td>
-            </tr>
-          </tbody>
-          <tfoot><tr><td colspan="3">Tổng hoa hồng tháng</td><td colspan="2"><strong>1.870.000 ₫</strong></td></tr></tfoot>
-        </table>
-      </div>
-
-      <div class="lc-section">
-        <span class="ck-mini-cap">Khách đổi voucher tại tiệm hôm nay</span>
-        <ul class="lc-redeemers">
-          <li>
-            <span class="dt-avatar">An</span>
-            <div><strong>Chú An</strong><span>11:02 · đổi voucher Nam Ngư −20.000 ₫</span></div>
-            <strong class="lc-comm">+ 15k hoa hồng</strong>
-          </li>
-          <li>
-            <span class="dt-avatar dt-avatar-2">Hg</span>
-            <div><strong>Chị Hương</strong><span>10:48 · đổi voucher Chin-Su −10.000 ₫</span></div>
-            <strong class="lc-comm">+ 8k</strong>
-          </li>
-          <li>
-            <span class="dt-avatar dt-avatar-3">Tà</span>
-            <div><strong>Anh Tài</strong><span>10:20 · đổi voucher MEATDeli −15.000 ₫</span></div>
-            <strong class="lc-comm">+ 12k</strong>
-          </li>
-          <li>
-            <span class="dt-avatar dt-avatar-4">CL</span>
-            <div><strong>Cô Lan</strong><span>09:32 · đổi voucher Omachi −25.000 ₫</span></div>
-            <strong class="lc-comm">+ 18k</strong>
-          </li>
-        </ul>
-      </div>
-
-      <div class="lc-cross">
-        <span class="lc-cross-mark">✦ AI</span>
-        <div class="lc-cross-body">
-          <strong>Cơ hội cross-sell</strong>
-          <p>Chú An đã mua Chin-Su + Nam Ngư trong tháng. Khách có cùng giỏ hàng này lên MEATDeli với CR3 <strong>21,2%</strong> (so với trung bình 11%). Gợi ý gửi combo MEATDeli qua VietQR có voucher kèm.</p>
-          <button type="button" class="ck-cta-secondary" id="lcCrossSell">Gửi gợi ý combo MEATDeli cho Chú An →</button>
-        </div>
-      </div>
-
-      <div class="lc-section">
-        <span class="ck-mini-cap">POSM &amp; vật phẩm brand cho tiệm</span>
-        <ul class="lc-posm">
-          <li><strong>Standee Nam Ngư x10</strong><span>60×160cm · giao 2 ngày · Masan tài trợ 100%</span><button type="button" class="ck-cta-secondary lc-posm-btn" data-posm="standee-nn">Đặt</button></li>
-          <li><strong>Bộ sticker giá Chin-Su Tết</strong><span>50 cái · giao 1 ngày · miễn phí</span><button type="button" class="ck-cta-secondary lc-posm-btn" data-posm="sticker-cs">Đặt</button></li>
-          <li><strong>Banner Omachi Thần Tốc</strong><span>100×30cm · gắn quầy · miễn phí</span><button type="button" class="ck-cta-secondary lc-posm-btn" data-posm="banner-om">Đặt</button></li>
-        </ul>
-      </div>
-
-      <div class="ck-modal-note">Tham chiếu One Tết 2026: 254K hội viên mới, 2,4M voucher phát, CR3 trung bình 15,2%. GT retailer top được rebate hoa hồng + POSM + uplift doanh số brand SKU. Brands trả ~7% ngân sách media về tiệm dưới dạng hoa hồng và POSM thay vì chỉ in pano cứng.</div>
-    </div>
-  </div>
-</div>
-
-<!-- ================== MODAL: WEEKLY BRIEF ================== -->
-<div class="ck-modal" id="modalWeekly" hidden role="dialog" aria-modal="true" aria-labelledby="modalWeeklyTitle">
-  <div class="ck-modal-back" data-close></div>
-  <div class="ck-modal-card ck-modal-card-wide">
-    <header class="ck-modal-h">
-      <h3 id="modalWeeklyTitle">Báo cáo tuần 19 · 03–09/05/2026</h3>
-      <button type="button" class="ck-modal-x" data-close aria-label="Đóng">✕</button>
-    </header>
-    <div class="ck-modal-body">
-      <div class="wk-kpis">
-        <div class="wk-kpi"><span>Doanh thu</span><strong>58,3tr</strong><em class="wk-up">▲12,4%</em></div>
-        <div class="wk-kpi"><span>Biên</span><strong>13,9%</strong><em class="wk-down">▼1,1pp</em></div>
-        <div class="wk-kpi"><span>Số hóa đơn</span><strong>312</strong><em class="wk-up">▲8,2%</em></div>
-        <div class="wk-kpi"><span>Giỏ TB</span><strong>187k</strong><em class="wk-up">▲3,9%</em></div>
-      </div>
-      <div class="wk-grid">
-        <div class="wk-block">
-          <span class="wk-cap">Top SKU theo doanh thu</span>
-          <ul class="wk-list">
-            <li><span class="prod-chip prod-omachi">Om</span>Omachi sườn hầm<strong>11,2tr</strong></li>
-            <li><span class="prod-chip prod-chinsu">Cs</span>Chinsu cá cơm<strong>8,7tr</strong></li>
-            <li><span class="prod-chip prod-wakeup">W</span>Wake-Up 247<strong>6,4tr</strong></li>
-            <li><span class="prod-chip prod-vinacafe">Vc</span>Vinacafé 3in1<strong>4,9tr</strong></li>
-            <li class="wk-li-slow"><span class="prod-chip prod-x">X</span>SKU X (chậm)<strong>0,3tr</strong></li>
-          </ul>
-        </div>
-        <div class="wk-block">
-          <span class="wk-cap">Doanh thu theo nhân viên</span>
-          <div class="wk-bar"><span>Lan</span><div class="wk-track"><span class="wk-fill" style="width:38%"></span></div><strong>38%</strong></div>
-          <div class="wk-bar"><span>Huy</span><div class="wk-track"><span class="wk-fill" style="width:29%"></span></div><strong>29%</strong></div>
-          <div class="wk-bar"><span>Mai</span><div class="wk-track"><span class="wk-fill" style="width:18%"></span></div><strong>18%</strong></div>
-          <div class="wk-bar"><span>Minh Anh</span><div class="wk-track"><span class="wk-fill" style="width:15%"></span></div><strong>15%</strong></div>
-        </div>
-        <div class="wk-block wk-block-alert">
-          <span class="wk-cap">Cảnh báo AI</span>
-          <p>Ca <strong>Lan 17–18h thứ Sáu</strong> doanh thu thấp hơn pattern 90 ngày 550k. Kiến nghị đóng quỹ ca và kiểm tra log POS.</p>
-          <p>Biên giảm 1,1pp do tỷ trọng nước giải khát tăng (lợi nhuận thấp hơn mì &amp; gia vị 4,2pp).</p>
-          <p>Sổ nợ khách hàng <strong>1,23tr</strong> — tăng liên tục 4 ngày qua. Gợi ý nhắc Chú An (350k · 18 ngày) qua VietQR.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ================== MODAL: EVENT LOG EXPANDED ================== -->
-<div class="ck-modal" id="modalLog" hidden role="dialog" aria-modal="true" aria-labelledby="modalLogTitle">
-  <div class="ck-modal-back" data-close></div>
-  <div class="ck-modal-card ck-modal-card-wide">
-    <header class="ck-modal-h">
-      <h3 id="modalLogTitle">Sự kiện trực tiếp · cùng merchant record</h3>
-      <button type="button" class="ck-modal-x" data-close aria-label="Đóng">✕</button>
-    </header>
-    <div class="ck-modal-body">
-      <ul class="ck-log-full" id="ckLogFull"></ul>
-      <p class="ck-modal-note">Mọi sự kiện trên cùng một merchant record. POS event → ví, tồn kho, AI, audit log, ngân hàng — đồng bộ trong &lt; 2 giây.</p>
-    </div>
-  </div>
-</div>
-
-<script src="platform.js" defer></script>
 </body>
 </html>

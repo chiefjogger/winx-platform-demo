@@ -284,15 +284,18 @@
     allEvents.length = 0;
     // Seed in chronological order — push so the last item is newest
     const seed = [
+      { t: '08:14', c: 'ncc',   x: 'NV MCH route-truck <strong>anh Hùng (RT-1207)</strong> check-in tại tiệm · 4 SKU sell-in mới' },
       { t: '08:30', c: 'biz',   x: 'Mai đối soát số dư đầu ngày · 33.760.000 ₫' },
       { t: '09:12', c: 'pos',   x: 'Lan bán HĐ #WX-00187 · 142.000 ₫ · HĐĐT-MTT phát hành' },
       { t: '09:32', c: 'biz',   x: 'Cô Lan đổi voucher <strong>Omachi −25k</strong> tại tiệm · + 18k hoa hồng' },
       { t: '09:45', c: 'pos',   x: 'Huy bán HĐ #WX-00188 · 78.000 ₫' },
+      { t: '10:02', c: 'biz',   x: 'Trả <strong>Vinamilk NPP Bình Tân</strong> qua WinX QR-out · 6.800.000 ₫ · không cần Vinamilk đồng ý' },
       { t: '10:08', c: 'ai',    x: 'Cảnh báo tồn: <strong>Wake-Up 247</strong> còn 8 thùng · hết trong ~1,2 ngày' },
       { t: '10:20', c: 'biz',   x: 'Anh Tài đổi voucher <strong>MEATDeli −15k</strong> · + 12k hoa hồng cho tiệm' },
       { t: '10:25', c: 'ncc',   x: '<strong>NPP MCH HCM-07</strong> gửi HĐ #MCH-4412 · 12.400.000 ₫ → chờ chủ tiệm duyệt' },
       { t: '10:31', c: 'ai',    x: 'Khớp <strong>#MCH-4412</strong> với đơn đặt + phiếu giao · phát hiện 420.000 ₫ CK Tết chưa khai · đề xuất trả ròng 11.980.000 ₫' },
-      { t: '10:38', c: 'ai',    x: 'Chú An đã tích <strong>18 lần Chin-Su</strong> tháng này · sắp đạt voucher hạng VIP · gợi ý gửi nhắc' },
+      { t: '10:35', c: 'ai',    x: 'Dual-ledger match · <strong>MCH sell-in × POS sell-out</strong> · Omachi velocity +18% vs tháng trước → đề xuất nâng hạn mức nhập hàng 25tr → 30tr' },
+      { t: '10:38', c: 'ai',    x: 'Chú An (hạng Bạc, 18 lần Chin-Su) sắp đạt voucher VIP · gợi ý gửi nhắc · WIN consumer graph match' },
     ];
     // Newest first: unshift each in order so the last seed entry (10:31) ends up at index 0
     seed.forEach(e => allEvents.unshift({ time: e.t, chan: channelLabel[e.c], text: e.x }));
@@ -573,9 +576,9 @@
       userText: 'Tuần này có nên nhập 30tr không?',
       thinking: 1000,
       html: `
-        <p>Được, nhưng phải chọn 1 trong 2:</p>
+        <p>Được. Cô có 2 lựa chọn:</p>
         <ul class="bubble-ul">
-          <li>Rút <strong>80 triệu ₫</strong> hạn mức đã duyệt sẵn (9,5%/năm · 8,7tr/tháng).</li>
+          <li><strong>Hạn mức nhập hàng MCH 30tr · 21 ngày · 1,2%/kỳ</strong> · auto-trừ 8% mỗi đơn POS. Invite-only, không động vào tiền mặt quầy.</li>
           <li>Hoãn <strong>2,2 triệu ₫</strong> công nợ chưa gấp (đá viên, anh Tâm).</li>
         </ul>
         <p>Danh mục đề xuất:</p>
@@ -925,20 +928,20 @@
   $('#loanDraw')?.addEventListener('click', () => {
     if (state.loan.drawn) return;
     state.loan.drawn = true;
-    state.balance += state.loan.drawAmt;
-    state.runwayDays = +(state.runwayDays + 12.3).toFixed(1);
+    // Hạn mức nhập hàng — không vào ví, đi thẳng PO MCH
+    state.runwayDays = +(state.runwayDays + 4.6).toFixed(1);
     renderBusiness();
 
     const time = now();
     flashPanel('biz');
-    logEvent('bank', `NH đối tác giải ngân <strong>80.000.000 ₫</strong> · hợp đồng tự tạo · ký số bằng eKYC`, time);
-    logEvent('biz',  `+80.000.000 ₫ vào ví · runway: 5,2 → ${fmtNgay(state.runwayDays)} ngày`, time);
-    logEvent('ai',   `Lịch trả tự động: 8% mỗi đơn QR · 8,7tr/tháng · 12 kỳ`, time);
+    logEvent('bank', `TCB phê duyệt hạn mức nhập hàng MCH <strong>20.400.000 ₫</strong> · 21 ngày · 1,2%/kỳ · auto-trừ 8%/POS · WinX origination`, time);
+    logEvent('biz',  `PO MCH HCM-07 thanh toán bằng hạn mức · tiền mặt quầy giữ nguyên · runway: ${fmtNgay(state.runwayDays)} ngày`, time);
+    logEvent('ai',   `Auto-trừ 8% mỗi đơn POS · cơ chế Mintifi (Ấn Độ) · không cần tiền mặt trả NPP`, time);
 
     const btn = $('#loanDraw');
     if (btn){
       btn.disabled = true;
-      btn.textContent = '✓ Đã giải ngân 80tr · vào ví';
+      btn.textContent = '✓ Đã dùng hạn mức cho PO MCH 20,4tr';
     }
   });
 
