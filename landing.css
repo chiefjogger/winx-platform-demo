@@ -47,6 +47,22 @@ a{ color: inherit; text-decoration: none; }
 .ink-ai{ color: var(--ai); }
 
 /* =====================================================
+   IC BANNER (internal pitch page)
+   ===================================================== */
+.ic-banner{
+  background: #FFF3E0;
+  border-top: 1px solid #E6BFB9;
+  border-bottom: 1px solid #E6BFB9;
+  color: #6B4A0F;
+  font-size: 12.5px;
+  padding: 8px 24px;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+.ic-banner strong{ color: #B8860B; }
+.ic-banner a{ color: var(--biz); text-decoration: underline; }
+
+/* =====================================================
    NAV
    ===================================================== */
 .lp-nav{
