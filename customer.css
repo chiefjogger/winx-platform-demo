@@ -432,6 +432,109 @@ a{ color: inherit; text-decoration: none; }
   height: 100px;
 }
 
+/* =====================================================
+   HERO FORK (cô Hà routing — tax + premium fast lanes)
+   ===================================================== */
+.c-hero-fork{
+  display: grid;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px dashed var(--line-2);
+}
+.c-hero-fork-cap{
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--ink-3);
+  margin-bottom: 2px;
+}
+.c-hero-fork-link{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  transition: border-color .15s ease, transform .12s ease;
+}
+.c-hero-fork-link::after{
+  content: "→";
+  font-size: 18px;
+  color: var(--ink-3);
+  font-weight: 700;
+}
+.c-hero-fork-link strong{
+  display: block;
+  font-size: 14.5px;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.c-hero-fork-link span{
+  display: block;
+  font-size: 13px;
+  color: var(--ink-3);
+  line-height: 1.45;
+}
+.c-hero-fork-tax{ border-left-color: var(--gold); }
+.c-hero-fork-tax:hover{ border-color: var(--gold-2); transform: translateX(2px); }
+.c-hero-fork-premium{ border-left-color: var(--red); }
+.c-hero-fork-premium:hover{ border-color: var(--red-2); transform: translateX(2px); }
+
+/* =====================================================
+   MID-PAGE PREMIUM CTA
+   ===================================================== */
+.c-midcta{
+  padding: 18px 22px;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+}
+.c-midcta-card{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 26px;
+  background: linear-gradient(135deg, #FFF3D6 0%, #F8E8B8 100%);
+  border: 2px solid #C9A958;
+  border-radius: 14px;
+  color: var(--ink);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.c-midcta-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(184,134,11,0.16);
+}
+.c-midcta-card strong{
+  display: block;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--gold-2);
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+.c-midcta-card span{
+  display: block;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #6B4A0F;
+}
+.c-midcta-arrow{
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--gold-2);
+  line-height: 1;
+}
+
+@media (max-width: 700px){
+  .c-midcta-card{ grid-template-columns: 1fr; text-align: center; }
+  .c-midcta-arrow{ display: none; }
+}
+
 /* footer routes */
 .c-foot-routes{
   display: grid;
