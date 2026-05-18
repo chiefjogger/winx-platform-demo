@@ -63,13 +63,49 @@ a{ color: inherit; text-decoration: none; }
   border-bottom: 1px solid var(--line);
 }
 .c-nav-inner{
-  max-width: 1100px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 14px 22px;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 20px;
+}
+.c-nav-right{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.c-npp-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--red-soft);
+  border: 1px solid #E6BFB9;
+  padding: 8px 14px;
+  border-radius: 999px;
+  color: var(--red-2);
+  transition: background .15s ease, border-color .15s ease;
+}
+.c-npp-link:hover{
+  background: var(--red);
+  border-color: var(--red-2);
+  color: #fff;
+}
+.c-npp-ic{ font-size: 16px; }
+.c-npp-cap{
+  display: block;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+  line-height: 1;
+}
+.c-npp-text strong{
+  display: block;
+  font-weight: 800;
+  font-size: 13.5px;
+  line-height: 1.2;
 }
 .c-brand{
   display: inline-flex;
@@ -264,6 +300,83 @@ a{ color: inherit; text-decoration: none; }
   font-size: 13.5px;
   color: var(--ink-3);
   margin: 0;
+}
+
+/* =====================================================
+   WIN-WIN BOX (motive transparency · cô Lan)
+   ===================================================== */
+.c-winwin{
+  background: linear-gradient(180deg, #FFF8E8 0%, #F8F2D8 100%);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 12px 12px 0;
+  padding: 16px 20px;
+  margin: 0 0 26px;
+  max-width: 580px;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #6B4A0F;
+}
+.c-winwin > strong:first-child{
+  display: block;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--gold-2);
+  margin-bottom: 8px;
+}
+.c-winwin strong{ color: var(--ink); font-weight: 700; }
+
+/* =====================================================
+   RM LIST (local RM directory · cô Lan, cô Sáu)
+   ===================================================== */
+.c-rm-list{
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 22px 24px;
+  margin: 30px 0 18px;
+}
+.c-rm-list > strong{
+  display: block;
+  color: #FFFCF7;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+.c-rm-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.c-rm{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 10px 14px;
+  background: rgba(0,0,0,0.18);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  font-size: 13px;
+}
+.c-rm span{ color: #C9C5BF; }
+.c-rm strong{
+  font-family: 'Inter', sans-serif;
+  color: var(--gold-soft);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.c-rm-note{
+  margin: 14px 0 0;
+  font-size: 12px;
+  color: #8B867D;
+  line-height: 1.55;
+  font-style: italic;
+}
+
+@media (max-width: 700px){
+  .c-rm-grid{ grid-template-columns: 1fr; }
+  .c-rm{ grid-template-columns: 1fr; gap: 4px; }
 }
 
 /* Hero rep card */
@@ -749,27 +862,13 @@ a{ color: inherit; text-decoration: none; }
   font-size: 16px;
   color: #2D2A21;
 }
-.c-contract-stamp{
-  width: 110px;
-  height: 110px;
-  border: 3px solid var(--red);
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.c-contract-stamp-svg{
+  width: 130px;
+  height: 130px;
   transform: rotate(-8deg);
-  background: rgba(199,62,58,0.06);
-  color: var(--red);
+  filter: drop-shadow(0 1px 0 rgba(199,62,58,0.15));
+  opacity: 0.92;
 }
-.c-stamp-text-top, .c-stamp-text-mid, .c-stamp-text-bot{
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  font-family: 'Inter', sans-serif;
-}
-.c-stamp-text-top{ font-size: 10px; }
-.c-stamp-text-mid{ font-size: 18px; margin: 3px 0; }
-.c-stamp-text-bot{ font-size: 8px; opacity: 0.85; }
 .c-contract-cap{
   text-align: center;
   font-size: 13.5px;
